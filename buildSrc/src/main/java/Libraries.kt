@@ -8,7 +8,6 @@ import Version.GuavaAndroid
 import Version.HiltAndroidVersion
 import Version.HiltNavigationCompose
 import Version.JunitExtKtx
-import Version.LifecycleRunTimeKtx
 import Version.NavigationCompose
 import Version.Okhttp3Version
 import Version.SplashScreenApi
@@ -17,19 +16,19 @@ import Version.TimberVersion
 import Version.TruthExt
 
 object Version {
-    const val CoreKtx = "1.9.0"
+    const val CoreKtx = "1.12.0"
     const val AppCompat = "1.6.1"
-    const val ComposeBom = "2023.01.00"
-    const val LifecycleRunTimeKtx = "2.3.1"
-    const val NavigationCompose = "2.5.3"
+    const val ComposeBom = "2023.10.01"
+    const val AndroidXLifeCycle = "2.6.2"
+    const val NavigationCompose = "2.7.5"
     const val AndroidXTestVersion = "1.5.0"
     const val EspressoCore = "3.5.1"
     const val TestRunnerVersion = "1.5.2"
     const val JunitExtKtx = "1.1.5"
     const val TruthExt = "1.5.0"
     const val Coil = "2.2.2"
-    const val HiltNavigationCompose = "1.0.0"
-    const val HiltAndroidVersion = "2.44"
+    const val HiltNavigationCompose = "1.1.0"
+    const val HiltAndroidVersion = "2.48"
     const val Accompanist = "0.28.0"
     const val SplashScreenApi = "1.1.0-alpha01"
     const val ConstraintLayoutCompose = "1.0.1"
@@ -41,6 +40,8 @@ object Version {
     const val AndroidXActivity = "1.9.1"
     const val KotlinxCoroutines = "1.7.0"
     const val KotlinReflect = "1.8.21"
+    const val AndroidXLiveData = "1.6.0-beta01"
+    const val LottieVersion = "5.2.0"
 }
 
 
@@ -49,7 +50,14 @@ object Libraries {
         const val coreKtx = "androidx.core:core-ktx:$CoreKtx"
         const val appCompat = "androidx.appcompat:appcompat:$AppCompat"
         const val lifecycleRunTimeKtx =
-            "androidx.lifecycle:lifecycle-runtime-ktx:$LifecycleRunTimeKtx"
+            "androidx.lifecycle:lifecycle-runtime-ktx:${Version.AndroidXLifeCycle}"
+        const val lifecycleRunTimeCompose =
+            "androidx.lifecycle:lifecycle-runtime-compose:${Version.AndroidXLifeCycle}"
+        const val viewModelCompose =
+            "androidx.lifecycle:lifecycle-viewmodel-compose:${Version.AndroidXLifeCycle}"
+        const val viewModelKtx =
+            "androidx.lifecycle:lifecycle-viewmodel-ktx:${Version.AndroidXLifeCycle}"
+        const val liveData = "androidx.compose.runtime:${Version.AndroidXLiveData}"
         const val splashScreen = "androidx.core:core-splashscreen:$SplashScreenApi"
     }
 
@@ -73,7 +81,10 @@ object Libraries {
 
     object Timber {
         const val timber = "com.jakewharton.timber:timber:$TimberVersion"
+    }
 
+    object Lottie {
+        const val lottie = "com.airbnb.android:lottie-compose:${Version.LottieVersion}"
     }
 
     object SquareUp {
@@ -128,10 +139,12 @@ object Libraries {
 
     object Hilt {
         const val hiltAndroid = "com.google.dagger:hilt-android:$HiltAndroidVersion"
-        const val hiltCompiler = "com.google.dagger:hilt-android-compiler:$HiltAndroidVersion"
+        const val hiltAndroidCompiler = "com.google.dagger:hilt-android-compiler:$HiltAndroidVersion"
+        const val hiltWork =
+            "androidx.hilt:hilt-work:$HiltNavigationCompose"
 
         //hilt compose
-        const val hiltNavigationCompse =
+        const val hiltNavigationCompose =
             "androidx.hilt:hilt-navigation-compose:$HiltNavigationCompose"
     }
 }

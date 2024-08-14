@@ -30,7 +30,7 @@ fun DependencyHandler.composeDependencies() {
     implementation(Libraries.Coil.coilCompose)
 
     //hilt navigation
-    implementation(Libraries.Hilt.hiltNavigationCompse)
+    implementation(Libraries.Hilt.hiltNavigationCompose)
 
     //accompanist
     accompanistDependencies()
@@ -52,6 +52,9 @@ fun DependencyHandler.composeDependencies() {
     //coroutines
     implementation(Libraries.Coroutine.android)
     implementation(Libraries.Coroutine.core)
+
+    //kotlinreflect
+    implementation(Libraries.KotlinReflect.reflect)
 }
 
 fun DependencyHandler.accompanistDependencies() {
@@ -65,13 +68,27 @@ fun DependencyHandler.accompanistDependencies() {
 }
 
 fun DependencyHandler.baseDependencies() {
-    implementation(Libraries.AndroidX.appCompat)
+//    implementation(Libraries.AndroidX.appCompat)
     implementation(Libraries.AndroidX.coreKtx)
+    //Lifecycle
     implementation(Libraries.AndroidX.lifecycleRunTimeKtx)
+    implementation(Libraries.AndroidX.lifecycleRunTimeCompose)
+
+    //ViewModel
+    implementation(Libraries.AndroidX.viewModelKtx)
+    implementation(Libraries.AndroidX.viewModelCompose)
+
+    //LiveData
+    implementation(Libraries.AndroidX.liveData)
+
+    //Lottie
+    implementation(Libraries.Lottie.lottie)
+
     implementation(Libraries.AndroidX.splashScreen)
     implementation(Libraries.Google.gson)
     implementation(Libraries.Hilt.hiltAndroid)
-    kapt(Libraries.Hilt.hiltCompiler)
+    implementation(Libraries.Hilt.hiltWork)
+    kapt(Libraries.Hilt.hiltAndroidCompiler)
     implementation(Libraries.Google.guava)
 }
 
