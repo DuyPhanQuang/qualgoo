@@ -62,16 +62,25 @@ android {
             )
         }
     }
+
+    testOptions {
+        unitTests {
+            isIncludeAndroidResources = true
+        }
+    }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+
     kotlinOptions {
         jvmTarget = "1.8"
         freeCompilerArgs = freeCompilerArgs.toMutableList().apply {
             add("-opt-in=kotlin.RequiresOptIn")
         }
     }
+
     buildFeatures {
         compose = true
     }
