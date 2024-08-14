@@ -11,8 +11,8 @@
 #-keep class com.google.gson.stream.** { *; }
 
 # Application classes that will be serialized/deserialized over Gson
--keep class com.minhdtm.example.weapose.data.model.** { <fields>; }
--keep class com.minhdtm.example.weapose.data.remote.response.** { <fields>; }
+-keep class wangyeo.interview.data.model.** { <fields>; }
+-keep class wangyeo.interview.data.remote.response.** { <fields>; }
 
 # Prevent proguard from stripping interface information from TypeAdapter, TypeAdapterFactory,
 # JsonSerializer, JsonDeserializer instances (so they can be used in @JsonAdapter)
