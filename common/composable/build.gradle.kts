@@ -4,5 +4,6 @@ plugins {
 
 
 dependencies {
+    CORE
     COMMON_THEME
 }
