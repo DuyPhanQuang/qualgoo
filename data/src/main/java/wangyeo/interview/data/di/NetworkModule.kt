@@ -14,11 +14,10 @@ import wangyeo.interview.data.remote.call_adapter.FlowCallAdapterFactory
 import wangyeo.interview.data.remote.interceptor.HeaderInterceptor
 import java.util.concurrent.TimeUnit
 
-const val BASE_URL = "https://api.openweathermap.org/data/2.5/"
-
 @Module
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
+    const val BASE_URL = "https://api.openweathermap.org/data/2.5/"
     @Provides
     fun provideOkHttpClient(
         headerInterceptor: HeaderInterceptor,

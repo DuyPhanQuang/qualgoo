@@ -123,6 +123,7 @@ fun DependencyHandler.moduleDependencies() {
     COMMON_THEME
     COMMON_COMPOSABLE
     FEATURE_HOME
+    FEATURE_COMMON
 }
 
 val DependencyHandler.CORE
@@ -142,3 +143,6 @@ val DependencyHandler.DOMAIN
 
 val DependencyHandler.FEATURE_HOME
     get() = implementation(project(mapOf("path" to ":feature:home")))
+
+val DependencyHandler.FEATURE_COMMON
+    get() = implementation(project(mapOf("path" to ":feature:common")))
