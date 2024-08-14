@@ -5,6 +5,11 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("com.google.dagger.hilt.android")
     kotlin("kapt")
+
+    // GG PlayServices, firebase, maps
+    id("com.google.gms.google-services")
+    id("com.google.firebase.crashlytics")
+    id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin")
 }
 
 val properties = Properties().apply {
