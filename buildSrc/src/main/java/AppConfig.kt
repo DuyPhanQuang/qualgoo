@@ -4,5 +4,5 @@ object AppConfig {
     const val compileSdk = 34
     const val versionCode = 1
     const val VersionName = "1.0.0"
-    const val KotlinCompilerExtension = "1.4.2"
+    const val KotlinCompilerExtension = "1.5.4"
 }

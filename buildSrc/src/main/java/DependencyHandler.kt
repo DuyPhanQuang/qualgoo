@@ -24,7 +24,7 @@ fun DependencyHandler.composeDependencies() {
     implementation(Libraries.Compose.composeMaterial3)
 
     //navigation
-    implementation(Libraries.Naviagtion.navigationCompose)
+    implementation(Libraries.Navigation.navigationCompose)
 
     //coil
     implementation(Libraries.Coil.coilCompose)
@@ -38,6 +38,30 @@ fun DependencyHandler.composeDependencies() {
     //constraint layout
     implementation(Libraries.Compose.constraintLayoutCompose)
 
+    //timber
+    implementation(Libraries.Timber.timber)
+
+    //okhttp
+    implementation(Libraries.SquareUp.okhttp3)
+    implementation(Libraries.SquareUp.okhttp3LoggingInterceptor)
+
+    //retrofit
+    implementation(Libraries.SquareUp.retrofit2)
+    implementation(Libraries.SquareUp.converterGson)
+
+    //coroutines
+    implementation(Libraries.Coroutine.android)
+    implementation(Libraries.Coroutine.core)
+}
+
+fun DependencyHandler.accompanistDependencies() {
+    implementation(Libraries.Accompanist.pager)
+    implementation(Libraries.Accompanist.swiperefresh)
+    implementation(Libraries.Accompanist.indicators)
+    implementation(Libraries.Accompanist.systemuicontroller)
+    implementation(Libraries.Accompanist.navigationMaterial)
+    implementation(Libraries.Accompanist.navigationAnimation)
+    implementation(Libraries.Accompanist.permission)
 }
 
 fun DependencyHandler.baseDependencies() {
@@ -51,22 +75,15 @@ fun DependencyHandler.baseDependencies() {
     implementation(Libraries.Google.guava)
 }
 
-fun DependencyHandler.accompanistDependencies() {
-    implementation(Libraries.Accompanist.pager)
-    implementation(Libraries.Accompanist.swiperefresh)
-    implementation(Libraries.Accompanist.indicators)
-    implementation(Libraries.Accompanist.systemuicontroller)
-    implementation(Libraries.Accompanist.navigationMaterial)
-    implementation(Libraries.Accompanist.navigationAnimation)
-    implementation(Libraries.Accompanist.permission)
-}
-
 fun DependencyHandler.testDependencies() {
     androidTestImplementation(Libraries.Test.testCoreKtx)
     androidTestImplementation(Libraries.Test.espressorCore)
     androidTestImplementation(Libraries.Test.runner)
     androidTestImplementation(Libraries.Test.junitExtKtx)
     androidTestImplementation(Libraries.Test.truthExt)
+
+    //Coroutine
+    implementation(Libraries.Coroutine.test)
 }
 
 fun DependencyHandler.moduleDependencies() {

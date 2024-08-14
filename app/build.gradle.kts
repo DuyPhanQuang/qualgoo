@@ -1,8 +1,14 @@
+import java.util.Properties
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("com.google.dagger.hilt.android")
     kotlin("kapt")
+}
+
+val properties = Properties().apply {
+    load(project.rootProject.file("local.properties").inputStream())
 }
 
 android {
@@ -16,6 +22,11 @@ android {
         versionCode = AppConfig.versionCode
         versionName = AppConfig.VersionName
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables {
+            useSupportLibrary = true
+        }
+
+        buildConfigField("String", "BASE_URL", properties.getProperty("BASE_URL"))
     }
 
     buildTypes {
@@ -25,7 +36,11 @@ android {
             initWith(getByName("debug"))
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                "proguard-rules.pro",
+                "retrofit2.pro",
+                "gson.pro",
+                "okhttp3.pro",
+                "firebase-crashlytics.pro",
             )
         }
         getByName("release") {
@@ -34,7 +49,11 @@ android {
             initWith(getByName("release"))
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                "proguard-rules.pro",
+                "retrofit2.pro",
+                "gson.pro",
+                "okhttp3.pro",
+                "firebase-crashlytics.pro",
             )
         }
     }
@@ -44,6 +63,9 @@ android {
     }
     kotlinOptions {
         jvmTarget = "1.8"
+        freeCompilerArgs = freeCompilerArgs.toMutableList().apply {
+            add("-opt-in=kotlin.RequiresOptIn")
+        }
     }
     buildFeatures {
         compose = true
