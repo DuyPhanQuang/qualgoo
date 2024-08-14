@@ -40,7 +40,7 @@ android {
                 "retrofit2.pro",
                 "gson.pro",
                 "okhttp3.pro",
-                "firebase-crashlytics.pro",
+                "firebase-crashlytics.pro"
             )
         }
         getByName("release") {
@@ -53,7 +53,7 @@ android {
                 "retrofit2.pro",
                 "gson.pro",
                 "okhttp3.pro",
-                "firebase-crashlytics.pro",
+                "firebase-crashlytics.pro"
             )
         }
     }

@@ -55,6 +55,16 @@ fun DependencyHandler.composeDependencies() {
 
     //kotlinreflect
     implementation(Libraries.KotlinReflect.reflect)
+
+    //Firebase
+    implementation(platform(Libraries.Google.Firebase.bom))
+    implementation(Libraries.Google.Firebase.crashlytics)
+
+    // Maps, Places, PlayServices
+    implementation(Libraries.Google.PlayServices.map)
+    implementation(Libraries.Google.PlayServices.location)
+    implementation(Libraries.Google.maps)
+    implementation(Libraries.Google.places)
 }
 
 fun DependencyHandler.accompanistDependencies() {
@@ -80,6 +90,9 @@ fun DependencyHandler.baseDependencies() {
 
     //LiveData
     implementation(Libraries.AndroidX.liveData)
+
+    //WorkManager
+    implementation(Libraries.AndroidX.workManager)
 
     //Lottie
     implementation(Libraries.Lottie.lottie)

@@ -57,7 +57,8 @@ object Libraries {
             "androidx.lifecycle:lifecycle-viewmodel-compose:${Version.AndroidXLifeCycle}"
         const val viewModelKtx =
             "androidx.lifecycle:lifecycle-viewmodel-ktx:${Version.AndroidXLifeCycle}"
-        const val liveData = "androidx.compose.runtime:${Version.AndroidXLiveData}"
+        const val liveData = "androidx.compose.runtime:runtime-livedata:${Version.AndroidXLiveData}"
+        const val workManager = "androidx.work:work-runtime-ktx:2.8.1"
         const val splashScreen = "androidx.core:core-splashscreen:$SplashScreenApi"
     }
 
@@ -76,7 +77,17 @@ object Libraries {
 
     object Google {
         const val gson = "com.google.code.gson:gson:$GsonVersion"
-        const val guava="com.google.guava:guava:$GuavaAndroid"
+        const val guava = "com.google.guava:guava:$GuavaAndroid"
+        object Firebase {
+            const val bom = "com.google.firebase:firebase-bom:32.6.0"
+            const val crashlytics = "com.google.firebase:firebase-crashlytics-ktx"
+        }
+        object PlayServices {
+            const val location = "com.google.android.gms:play-services-location:21.0.1"
+            const val map = "com.google.android.gms:play-services-maps:18.2.0"
+        }
+        const val maps = "com.google.maps.android:maps-compose:2.9.1"
+        const val places = "com.google.android.libraries.places:places:3.3.0"
     }
 
     object Timber {
