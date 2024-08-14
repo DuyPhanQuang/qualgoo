@@ -23,7 +23,7 @@ fun DependencyHandler.composeDependencies() {
     implementation(Libraries.Compose.composeRuntime)
     implementation(Libraries.Compose.composeMaterial3)
 
-    //navgation
+    //navigation
     implementation(Libraries.Naviagtion.navigationCompose)
 
     //coil
@@ -68,3 +68,30 @@ fun DependencyHandler.testDependencies() {
     androidTestImplementation(Libraries.Test.junitExtKtx)
     androidTestImplementation(Libraries.Test.truthExt)
 }
+
+fun DependencyHandler.moduleDependencies() {
+    CORE
+    DATA
+    DOMAIN
+    COMMON_THEME
+    COMMON_COMPOSABLE
+    FEATURE_HOME
+}
+
+val DependencyHandler.CORE
+    get() = implementation(project(mapOf("path" to ":core")))
+
+val DependencyHandler.COMMON_THEME
+    get() = implementation(project(mapOf("path" to ":common:theme")))
+
+val DependencyHandler.COMMON_COMPOSABLE
+    get() = implementation(project(mapOf("path" to ":common:composable")))
+
+val DependencyHandler.DATA
+    get() = implementation(project(mapOf("path" to ":data")))
+
+val DependencyHandler.DOMAIN
+    get() = implementation(project(mapOf("path" to ":domain")))
+
+val DependencyHandler.FEATURE_HOME
+    get() = implementation(project(mapOf("path" to ":feature:home")))

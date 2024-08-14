@@ -61,5 +61,6 @@ android {
 dependencies {
     baseDependencies()
     composeDependencies()
+    moduleDependencies()
     testDependencies()
 }

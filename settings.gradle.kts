@@ -21,3 +21,9 @@ dependencyResolutionManagement {
 
 rootProject.name = "qualgoo app"
 include(":app")
+include(":core")
+include(":common:theme")
+include(":common:composable")
+include(":data")
+include(":domain")
+include(":feature:home")
