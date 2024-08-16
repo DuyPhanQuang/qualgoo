@@ -15,4 +15,10 @@
     <string name="error_message_address_is_not_found">Không thể xác định được địa chỉ này!</string>
     <string name="error_message_network">Lỗi - Mạng</string>
     <string name="error_message_http">Mã: %1$d\nUrl: %2$s</string>
+
+    <!-- Drawer -->
+    <string name="feature_group_tab">Tính năng</string>
+    <string name="current_weather_tab">Thời tiết hiện tại</string>
+    <string name="seven_days_weather_tab">Dự báo 7 ngày</string>
+    <string name="another_group_tab">Khác</string>
 </resources>

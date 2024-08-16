@@ -12,7 +12,9 @@ import wangyeo.interview.domain.exceptions.AppDomainException
 import wangyeo.interview.domain.repositories.WeatherRepository
 import wangyeo.interview.domain.usecases.base.FlowUseCase
 import javax.inject.Inject
+import javax.inject.Singleton
 
+@Singleton
 class GetCurrentWeatherUseCase @Inject constructor(
     @ApplicationContext private val context: Context,
     @MainDispatcher private val coroutineDispatcher: CoroutineDispatcher,
