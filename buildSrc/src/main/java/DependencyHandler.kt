@@ -78,7 +78,7 @@ fun DependencyHandler.accompanistDependencies() {
 }
 
 fun DependencyHandler.baseDependencies() {
-//    implementation(Libraries.AndroidX.appCompat)
+    implementation(Libraries.AndroidX.appCompat)
     implementation(Libraries.AndroidX.coreKtx)
     //Lifecycle
     implementation(Libraries.AndroidX.lifecycleRunTimeKtx)
