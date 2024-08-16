@@ -31,7 +31,7 @@ android {
             useSupportLibrary = true
         }
 
-        buildConfigField("String", "BASE_URL", properties.getProperty("BASE_URL"))
+//        buildConfigField("String", "BASE_URL", properties.getProperty("BASE_URL"))
     }
 
     buildTypes {
