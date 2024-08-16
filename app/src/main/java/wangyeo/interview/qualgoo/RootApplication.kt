@@ -6,7 +6,6 @@ import android.os.Build
 import com.google.android.libraries.places.api.Places
 import dagger.hilt.android.HiltAndroidApp
 import timber.log.Timber
-import wangyeo.interview.qualgoo.BuildConfig
 
 @HiltAndroidApp
 class RootApplication : Application() {

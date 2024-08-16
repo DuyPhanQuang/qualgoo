@@ -1,4 +1,4 @@
-package wangyeo.interview.data.di
+package wangyeo.interview.domain.di
 
 import android.content.Context
 import com.google.android.libraries.places.api.model.AutocompleteSessionToken
@@ -10,10 +10,10 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import wangyeo.interview.data.remote.api.CurrentWeatherApiService
 import wangyeo.interview.data.remote.api.OneCallApiService
-import wangyeo.interview.data.repositories.LocationRepositoryImpl
-import wangyeo.interview.data.repositories.WeatherRepositoryImpl
+import wangyeo.interview.domain.repositories.impl.WeatherRepositoryImpl
 import wangyeo.interview.domain.repositories.LocationRepository
 import wangyeo.interview.domain.repositories.WeatherRepository
+import wangyeo.interview.domain.repositories.impl.LocationRepositoryImpl
 
 @Module
 @InstallIn(SingletonComponent::class)

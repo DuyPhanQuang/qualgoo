@@ -5,5 +5,4 @@ plugins {
 
 dependencies {
     CORE
-    DOMAIN
 }

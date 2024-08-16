@@ -4,7 +4,6 @@ plugins {
 
 
 dependencies {
-    implementation(project(":app"))
     CORE
     DATA
     DOMAIN

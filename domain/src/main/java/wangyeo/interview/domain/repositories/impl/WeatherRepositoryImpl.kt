@@ -1,4 +1,4 @@
-package wangyeo.interview.data.repositories
+package wangyeo.interview.domain.repositories.impl
 
 import androidx.compose.ui.text.intl.Locale
 import com.google.android.gms.maps.model.LatLng

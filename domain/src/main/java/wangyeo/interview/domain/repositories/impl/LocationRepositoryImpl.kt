@@ -1,4 +1,4 @@
-package wangyeo.interview.data.repositories
+package wangyeo.interview.domain.repositories.impl
 
 import android.annotation.SuppressLint
 import android.content.Context

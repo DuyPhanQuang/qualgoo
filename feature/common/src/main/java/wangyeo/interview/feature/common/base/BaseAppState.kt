@@ -1,9 +1,6 @@
-package wangyeo.interview.qualgoo
+package wangyeo.interview.feature.common.base
 
 import android.content.Context
-import android.content.Intent
-import android.net.Uri
-import android.provider.Settings
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.material3.DrawerState
 import androidx.compose.material3.DrawerValue
@@ -32,9 +29,9 @@ fun rememberBaseAppState(
     coroutineScope: CoroutineScope = rememberCoroutineScope(),
     controller: NavHostController = rememberAnimatedNavController(),
     drawer: DrawerState = rememberDrawerState(initialValue = DrawerValue.Closed),
-    snackbarHost: SnackbarHostState = remember { SnackbarHostState() },
-): BaseAppState = remember(coroutineScope, controller, drawer, snackbarHost) {
-    BaseAppState(coroutineScope, controller, drawer, snackbarHost)
+    snackBarHost: SnackbarHostState = remember { SnackbarHostState() },
+): BaseAppState = remember(coroutineScope, controller, drawer, snackBarHost) {
+    BaseAppState(coroutineScope, controller, drawer, snackBarHost)
 }
 
 class BaseAppState(
@@ -43,20 +40,20 @@ class BaseAppState(
     val drawer: DrawerState,
     val snackBarHost: SnackbarHostState,
 ) {
-    private val drawerTabs = DrawerTab.values()
+    private val drawerTabs = wangyeo.interview.qualgoo.routes.DrawerTab.values()
 
     val shouldEnableGesture: Boolean
         @Composable get() = controller.currentBackStackEntryAsState().value?.destination?.route in drawerTabs.map { it.route }
 
-    val drawerItemSelected: DrawerTab
+    val drawerItemSelected: wangyeo.interview.qualgoo.routes.DrawerTab
         @Composable get() {
             val route = controller.currentBackStackEntryAsState().value?.destination?.route
-            return drawerTabs.firstOrNull { it.route == route } ?: DrawerTab.HOME
+            return drawerTabs.firstOrNull { it.route == route } ?: wangyeo.interview.qualgoo.routes.DrawerTab.HOME
         }
 
     val isCustomDarkMode: Boolean
         get() {
-            val listScreenCustomizeDarkMode = listOf(Screen.SearchByMap.route)
+            val listScreenCustomizeDarkMode = listOf(wangyeo.interview.qualgoo.routes.Screen.SearchByMap.route)
             val route = controller.currentBackStackEntry?.destination?.route
             return route in listScreenCustomizeDarkMode
         }
@@ -113,8 +110,8 @@ class BaseAppState(
 
     fun navigateToHome() {
         closeDrawer()
-        controller.navigate(route = Screen.Home.route) {
-            popUpTo(Screen.Splash.route) {
+        controller.navigate(route = wangyeo.interview.qualgoo.routes.Screen.Home.route) {
+            popUpTo(wangyeo.interview.qualgoo.routes.Screen.Splash.route) {
                 inclusive = true
             }
         }
@@ -123,8 +120,8 @@ class BaseAppState(
     fun navigateToCurrentWeather() {
         closeDrawer()
 
-        controller.navigate(route = Screen.Home.route) {
-            popUpTo(Screen.Home.route) {
+        controller.navigate(route = wangyeo.interview.qualgoo.routes.Screen.Home.route) {
+            popUpTo(wangyeo.interview.qualgoo.routes.Screen.Home.route) {
                 inclusive = true
             }
         }
@@ -133,7 +130,7 @@ class BaseAppState(
     fun navigateToSevenDaysWeather() {
         closeDrawer()
 
-        controller.navigate(route = Screen.SevenDaysWeather.route)
+        controller.navigate(route = wangyeo.interview.qualgoo.routes.Screen.SevenDaysWeather.route)
     }
 
     fun openAppSetting(context: Context) {

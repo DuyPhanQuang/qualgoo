@@ -14,20 +14,20 @@ import com.airbnb.lottie.compose.LottieAnimation
 import com.airbnb.lottie.compose.LottieCompositionSpec
 import com.airbnb.lottie.compose.animateLottieCompositionAsState
 import com.airbnb.lottie.compose.rememberLottieComposition
-import wangyeo.interview.qualgoo.BaseAppState
 import wangyeo.interview.feature.common.R
+import wangyeo.interview.feature.common.base.BaseAppState
 import wangyeo.interview.theme.AppTheme
 
 @Composable
-fun Splash(appState: BaseAppState) {
-    SplashScreen(
+fun SplashScreen(appState: BaseAppState) {
+    SplashView(
         onNavigateHome = appState::navigateToHome
     )
 }
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-fun SplashScreen(
+fun SplashView(
     onNavigateHome: () -> Unit = {},
 ) {
     val composition by rememberLottieComposition(LottieCompositionSpec.RawRes(R.raw.logo_animation))
@@ -45,7 +45,8 @@ fun SplashScreen(
         Box(modifier = Modifier.fillMaxSize()) {
             LottieAnimation(modifier = Modifier.align(Alignment.Center),
                 composition = composition,
-                progress = { logoAnimationState.progress })
+                progress = { logoAnimationState.progress }
+            )
         }
     }
 }
@@ -54,6 +55,6 @@ fun SplashScreen(
 @Composable
 fun Splash_Preview() {
     AppTheme {
-        SplashScreen()
+        SplashView()
     }
 }

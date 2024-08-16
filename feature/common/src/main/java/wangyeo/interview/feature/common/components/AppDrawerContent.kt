@@ -1,4 +1,4 @@
-package wangyeo.interview.qualgoo.components
+package wangyeo.interview.feature.common.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.ColumnScope
@@ -23,12 +23,12 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import wangyeo.interview.composable.NavigationDrawerLabel
-import wangyeo.interview.qualgoo.R
+import wangyeo.interview.feature.common.R
 import wangyeo.interview.qualgoo.routes.DrawerTab
 
 @Composable
 fun ColumnScope.AppDrawerContent(
-    selectedItem: DrawerTab,
+    selectedItem: wangyeo.interview.qualgoo.routes.DrawerTab,
     onClickCurrentWeather: () -> Unit = {},
     onClickSevenDaysWeather: () -> Unit = {},
 ) {
@@ -37,7 +37,7 @@ fun ColumnScope.AppDrawerContent(
     Row(verticalAlignment = Alignment.CenterVertically) {
         Image(
             modifier = Modifier.size(120.dp),
-            painter = painterResource(id = R.mipmap.ic_launcher),
+            painter = painterResource(id = R.drawable.ic_shower_rain),
             contentDescription = null,
         )
 
@@ -54,7 +54,7 @@ fun ColumnScope.AppDrawerContent(
     NavigationDrawerItem(
         icon = {
             Icon(
-                painter = painterResource(id = DrawerTab.HOME.icon),
+                painter = painterResource(id = wangyeo.interview.qualgoo.routes.DrawerTab.HOME.icon),
                 modifier = Modifier.size(24.dp),
                 contentDescription = null,
             )
@@ -62,7 +62,7 @@ fun ColumnScope.AppDrawerContent(
         label = {
             Text(text = stringResource(id = R.string.current_weather_tab))
         },
-        selected = DrawerTab.HOME == selectedItem,
+        selected = wangyeo.interview.qualgoo.routes.DrawerTab.HOME == selectedItem,
         onClick = onClickCurrentWeather,
         modifier = Modifier.padding(NavigationDrawerItemDefaults.ItemPadding),
     )
@@ -70,7 +70,7 @@ fun ColumnScope.AppDrawerContent(
     NavigationDrawerItem(
         icon = {
             Icon(
-                painter = painterResource(id = DrawerTab.SEVEN_DAYS_WEATHER.icon),
+                painter = painterResource(id = wangyeo.interview.qualgoo.routes.DrawerTab.SEVEN_DAYS_WEATHER.icon),
                 modifier = Modifier.size(24.dp),
                 contentDescription = null,
             )
@@ -78,7 +78,7 @@ fun ColumnScope.AppDrawerContent(
         label = {
             Text(text = stringResource(id = R.string.seven_days_weather_tab))
         },
-        selected = DrawerTab.SEVEN_DAYS_WEATHER == selectedItem,
+        selected = wangyeo.interview.qualgoo.routes.DrawerTab.SEVEN_DAYS_WEATHER == selectedItem,
         onClick = onClickSevenDaysWeather,
         modifier = Modifier.padding(NavigationDrawerItemDefaults.ItemPadding),
     )

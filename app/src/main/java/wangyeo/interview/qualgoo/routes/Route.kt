@@ -5,9 +5,9 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.navigation
 import com.google.accompanist.navigation.animation.composable
+import wangyeo.interview.feature.common.base.BaseAppState
+import wangyeo.interview.qualgoo.splash.SplashScreen
 import wangyeo.interview.feature.home.ui.screens.HomeScreen
-import wangyeo.interview.qualgoo.BaseAppState
-import wangyeo.interview.qualgoo.splash.Splash
 
 @OptIn(ExperimentalAnimationApi::class)
 fun NavGraphBuilder.splash(appState: BaseAppState) {
@@ -30,7 +30,7 @@ fun NavGraphBuilder.splash(appState: BaseAppState) {
                 slideOutOfContainer(AnimatedContentTransitionScope.SlideDirection.Right, animationSpec = tween(700))
             },
         ) {
-            Splash(appState)
+            SplashScreen(appState)
         }
     }
 }
