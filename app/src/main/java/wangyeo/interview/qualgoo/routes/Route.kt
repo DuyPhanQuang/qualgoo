@@ -1,6 +1,8 @@
 package wangyeo.interview.qualgoo.routes
 
 import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.animation.AnimatedContentTransitionScope
+import androidx.compose.animation.core.tween
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.navigation

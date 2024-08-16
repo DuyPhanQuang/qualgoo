@@ -75,6 +75,7 @@ fun DependencyHandler.accompanistDependencies() {
     implementation(Libraries.Accompanist.navigationMaterial)
     implementation(Libraries.Accompanist.navigationAnimation)
     implementation(Libraries.Accompanist.permission)
+    implementation(Libraries.Accompanist.flowLayout)
 }
 
 fun DependencyHandler.baseDependencies() {

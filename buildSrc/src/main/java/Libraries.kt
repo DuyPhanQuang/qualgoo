@@ -29,7 +29,7 @@ object Version {
     const val Coil = "2.2.2"
     const val HiltNavigationCompose = "1.1.0"
     const val HiltAndroidVersion = "2.48"
-    const val Accompanist = "0.28.0"
+    const val Accompanist = "0.31.1-alpha"
     const val SplashScreenApi = "1.1.0-alpha01"
     const val ConstraintLayoutCompose = "1.0.1"
     const val GsonVersion = "2.10.1"
@@ -130,6 +130,8 @@ object Libraries {
             "com.google.accompanist:accompanist-navigation-animation:${Version.Accompanist}"
         const val permission =
             "com.google.accompanist:accompanist-permissions:${Version.Accompanist}"
+        const val flowLayout =
+            "com.google.accompanist:accompanist-flowlayout:${Version.Accompanist}"
     }
 
     object Navigation {
