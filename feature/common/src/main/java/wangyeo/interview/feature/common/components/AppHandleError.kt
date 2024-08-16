@@ -19,8 +19,8 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import wangyeo.interview.feature.common.base.ViewState
 import wangyeo.interview.core.enums.ActionType
-import wangyeo.interview.domain.dialog.AlertDialog
-import wangyeo.interview.domain.exceptions.AppDomainException
+import wangyeo.interview.data.dialog.AlertDialog
+import wangyeo.interview.data.exceptions.AppDomainException
 
 @Composable
 fun <VS : ViewState> AppHandleError(
@@ -76,7 +76,7 @@ fun FullScreenLoading(
 
 @Composable
 fun HandleError(
-    error: AppDomainException,
+    error: wangyeo.interview.data.exceptions.AppDomainException,
     onPositiveAction: (action: ActionType?, value: Any?) -> Unit = { _, _ -> },
     onNegativeAction: (action: ActionType?, value: Any?) -> Unit = { _, _ -> },
     onShowSnackBar: (message: String) -> Unit = {},
@@ -85,7 +85,7 @@ fun HandleError(
     val context = LocalContext.current
 
     when (error) {
-        is AppDomainException.AlertException -> {
+        is wangyeo.interview.data.exceptions.AppDomainException.AlertException -> {
             WeatherAlertDialog(
                 alertDialog = error.alertDialog,
                 onDismissRequest = onDismissRequest,
@@ -105,7 +105,7 @@ fun HandleError(
 
 @Composable
 fun WeatherAlertDialog(
-    alertDialog: AlertDialog,
+    alertDialog: wangyeo.interview.data.dialog.AlertDialog,
     positiveAction: (action: ActionType?, value: Any?) -> Unit = { _, _ -> },
     negativeAction: (action: ActionType?, value: Any?) -> Unit = { _, _ -> },
     onDismissRequest: () -> Unit = {},

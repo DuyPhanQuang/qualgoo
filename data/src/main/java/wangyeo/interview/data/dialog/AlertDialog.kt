@@ -1,4 +1,4 @@
-package wangyeo.interview.domain.dialog
+package wangyeo.interview.data.dialog
 
 import wangyeo.interview.core.enums.ActionType
 

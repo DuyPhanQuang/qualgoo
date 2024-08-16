@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.map
 import wangyeo.interview.core.di.MainDispatcher
 import wangyeo.interview.core.extensions.asFlow
 import wangyeo.interview.data.models.Hourly
-import wangyeo.interview.domain.exceptions.AppDomainException
+import wangyeo.interview.data.exceptions.AppDomainException
 import wangyeo.interview.domain.repositories.WeatherRepository
 import wangyeo.interview.domain.usecases.base.FlowUseCase
 import java.util.concurrent.TimeUnit

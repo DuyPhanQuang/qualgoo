@@ -1,7 +1,7 @@
 package wangyeo.interview.feature.home.viewmodel
 
 import com.google.android.gms.maps.model.LatLng
-import wangyeo.interview.domain.exceptions.AppDomainException
+import wangyeo.interview.data.exceptions.AppDomainException
 import wangyeo.interview.feature.common.base.ViewState
 import wangyeo.interview.feature.home.models.CurrentWeatherViewData
 import wangyeo.interview.feature.home.models.HourWeatherViewData

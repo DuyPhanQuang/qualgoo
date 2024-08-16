@@ -4,9 +4,9 @@ import android.content.Context
 import dagger.hilt.android.qualifiers.ApplicationContext
 import wangyeo.interview.core.enums.ActionType
 import wangyeo.interview.data.exceptions.ResponseException
-import wangyeo.interview.domain.dialog.AlertDialog
-import wangyeo.interview.domain.exceptions.AppDomainException
 import wangyeo.interview.data.R
+import wangyeo.interview.data.dialog.AlertDialog
+import wangyeo.interview.data.exceptions.AppDomainException
 import javax.inject.Inject
 
 class AppDataExceptionMapper @Inject constructor(@ApplicationContext private val context: Context) {

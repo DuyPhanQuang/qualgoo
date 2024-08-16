@@ -1,4 +1,4 @@
-package wangyeo.interview.feature.common.base
+package wangyeo.interview.qualgoo
 
 import android.content.Context
 import androidx.compose.animation.ExperimentalAnimationApi
@@ -20,8 +20,6 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 import wangyeo.interview.core.utils.openAppSettings
-import wangyeo.interview.qualgoo.routes.DrawerTab
-import wangyeo.interview.qualgoo.routes.Screen
 
 @OptIn(ExperimentalAnimationApi::class)
 @Composable

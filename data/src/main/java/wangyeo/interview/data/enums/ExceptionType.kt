@@ -1,4 +1,4 @@
-package wangyeo.interview.domain.enums
+package wangyeo.interview.data.enums
 
 /**
  * Clear exception from Throwable

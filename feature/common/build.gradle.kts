@@ -5,6 +5,7 @@ plugins {
 
 dependencies {
     CORE
+    DATA
     DOMAIN
     COMMON_THEME
     COMMON_COMPOSABLE

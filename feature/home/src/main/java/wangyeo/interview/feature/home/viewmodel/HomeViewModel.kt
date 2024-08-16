@@ -10,8 +10,8 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.flow.zip
 import wangyeo.interview.core.enums.ActionType
-import wangyeo.interview.domain.dialog.AlertDialog
-import wangyeo.interview.domain.exceptions.AppDomainException
+import wangyeo.interview.data.dialog.AlertDialog
+import wangyeo.interview.data.exceptions.AppDomainException
 import wangyeo.interview.domain.usecases.GetCurrentLocationUseCase
 import wangyeo.interview.domain.usecases.GetCurrentWeatherUseCase
 import wangyeo.interview.domain.usecases.GetHourWeatherUseCase

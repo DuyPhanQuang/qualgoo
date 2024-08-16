@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.Flow
 import wangyeo.interview.core.di.IoDispatcher
 import wangyeo.interview.core.extensions.asFlow
 import wangyeo.interview.data.models.OneCallResponse
-import wangyeo.interview.domain.exceptions.AppDomainException
+import wangyeo.interview.data.exceptions.AppDomainException
 import wangyeo.interview.domain.repositories.WeatherRepository
 import wangyeo.interview.domain.usecases.base.FlowUseCase
 import javax.inject.Inject

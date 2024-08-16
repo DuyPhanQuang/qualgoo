@@ -21,10 +21,8 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalFocusManager
 import com.google.accompanist.navigation.animation.AnimatedNavHost
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
-import wangyeo.interview.feature.common.base.BaseAppState
 import wangyeo.interview.feature.common.broadcast.LocaleChangeBroadcast
-import wangyeo.interview.feature.common.base.rememberBaseAppState
-import wangyeo.interview.feature.common.components.AppDrawerContent
+import wangyeo.interview.qualgoo.components.AppDrawerContent
 import wangyeo.interview.qualgoo.routes.NestedGraph
 import wangyeo.interview.qualgoo.routes.Screen
 import wangyeo.interview.qualgoo.routes.home

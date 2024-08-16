@@ -22,7 +22,7 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.suspendCancellableCoroutine
 import timber.log.Timber
 import wangyeo.interview.data.R
-import wangyeo.interview.domain.exceptions.AppDomainException
+import wangyeo.interview.data.exceptions.AppDomainException
 import wangyeo.interview.domain.repositories.LocationRepository
 import javax.inject.Inject
 import kotlin.coroutines.resume

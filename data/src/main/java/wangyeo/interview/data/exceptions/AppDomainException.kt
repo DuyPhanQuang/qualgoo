@@ -1,9 +1,9 @@
-package wangyeo.interview.domain.exceptions
+package wangyeo.interview.data.exceptions
 
 import wangyeo.interview.core.enums.RedirectType
 import wangyeo.interview.core.models.Tag
-import wangyeo.interview.domain.dialog.AlertDialog
-import wangyeo.interview.domain.enums.ExceptionType
+import wangyeo.interview.data.dialog.AlertDialog
+import wangyeo.interview.data.enums.ExceptionType
 
 sealed class AppDomainException(
     open val code: Int,

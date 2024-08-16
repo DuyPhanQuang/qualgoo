@@ -1,4 +1,4 @@
-package wangyeo.interview.feature.home.ui.screens
+package wangyeo.interview.qualgoo.ui.screens
 
 import android.Manifest
 import androidx.compose.material.ExperimentalMaterialApi
@@ -14,10 +14,10 @@ import com.google.accompanist.permissions.rememberMultiplePermissionsState
 import com.google.android.gms.maps.model.LatLng
 import kotlinx.coroutines.flow.collectLatest
 import wangyeo.interview.core.enums.ActionType
-import wangyeo.interview.feature.common.base.BaseAppState
 import wangyeo.interview.feature.common.global.Constants
 import wangyeo.interview.feature.home.ui.components.CurrentWeatherView
 import wangyeo.interview.feature.home.viewmodel.HomeViewModel
+import wangyeo.interview.qualgoo.BaseAppState
 
 @OptIn(ExperimentalPermissionsApi::class, ExperimentalMaterialApi::class)
 @Composable

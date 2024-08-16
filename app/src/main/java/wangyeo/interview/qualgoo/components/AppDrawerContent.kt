@@ -1,4 +1,4 @@
-package wangyeo.interview.feature.common.components
+package wangyeo.interview.qualgoo.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.ColumnScope
@@ -28,7 +28,7 @@ import wangyeo.interview.qualgoo.routes.DrawerTab
 
 @Composable
 fun ColumnScope.AppDrawerContent(
-    selectedItem: wangyeo.interview.qualgoo.routes.DrawerTab,
+    selectedItem: DrawerTab,
     onClickCurrentWeather: () -> Unit = {},
     onClickSevenDaysWeather: () -> Unit = {},
 ) {
@@ -54,7 +54,7 @@ fun ColumnScope.AppDrawerContent(
     NavigationDrawerItem(
         icon = {
             Icon(
-                painter = painterResource(id = wangyeo.interview.qualgoo.routes.DrawerTab.HOME.icon),
+                painter = painterResource(id = DrawerTab.HOME.icon),
                 modifier = Modifier.size(24.dp),
                 contentDescription = null,
             )
@@ -62,7 +62,7 @@ fun ColumnScope.AppDrawerContent(
         label = {
             Text(text = stringResource(id = R.string.current_weather_tab))
         },
-        selected = wangyeo.interview.qualgoo.routes.DrawerTab.HOME == selectedItem,
+        selected = DrawerTab.HOME == selectedItem,
         onClick = onClickCurrentWeather,
         modifier = Modifier.padding(NavigationDrawerItemDefaults.ItemPadding),
     )
@@ -70,7 +70,7 @@ fun ColumnScope.AppDrawerContent(
     NavigationDrawerItem(
         icon = {
             Icon(
-                painter = painterResource(id = wangyeo.interview.qualgoo.routes.DrawerTab.SEVEN_DAYS_WEATHER.icon),
+                painter = painterResource(id = DrawerTab.SEVEN_DAYS_WEATHER.icon),
                 modifier = Modifier.size(24.dp),
                 contentDescription = null,
             )
@@ -78,7 +78,7 @@ fun ColumnScope.AppDrawerContent(
         label = {
             Text(text = stringResource(id = R.string.seven_days_weather_tab))
         },
-        selected = wangyeo.interview.qualgoo.routes.DrawerTab.SEVEN_DAYS_WEATHER == selectedItem,
+        selected = DrawerTab.SEVEN_DAYS_WEATHER == selectedItem,
         onClick = onClickSevenDaysWeather,
         modifier = Modifier.padding(NavigationDrawerItemDefaults.ItemPadding),
     )

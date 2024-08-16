@@ -97,7 +97,6 @@ fun DependencyHandler.baseDependencies() {
     //Lottie
     implementation(Libraries.Lottie.lottie)
 
-    implementation(Libraries.AndroidX.splashScreen)
     implementation(Libraries.Google.gson)
     implementation(Libraries.Hilt.hiltAndroid)
     implementation(Libraries.Hilt.hiltWork)

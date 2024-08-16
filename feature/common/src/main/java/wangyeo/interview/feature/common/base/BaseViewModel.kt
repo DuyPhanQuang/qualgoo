@@ -8,8 +8,8 @@ import kotlinx.coroutines.CoroutineStart
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import timber.log.Timber
-import wangyeo.interview.domain.dialog.AlertDialog
-import wangyeo.interview.domain.exceptions.AppDomainException
+import wangyeo.interview.data.dialog.AlertDialog
+import wangyeo.interview.data.exceptions.AppDomainException
 import kotlin.coroutines.CoroutineContext
 import kotlin.coroutines.EmptyCoroutineContext
 
@@ -17,12 +17,12 @@ open class BaseViewModel : ViewModel() {
     private val coroutineExceptionHandler = CoroutineExceptionHandler { _, exception ->
         Timber.e(exception.message)
         hideLoading()
-        val errorResponse = if (exception is AppDomainException) {
+        val errorResponse = if (exception is wangyeo.interview.data.exceptions.AppDomainException) {
             exception
         } else {
-            AppDomainException.AlertException(
+            wangyeo.interview.data.exceptions.AppDomainException.AlertException(
                 code = -1,
-                alertDialog = AlertDialog(
+                alertDialog = wangyeo.interview.data.dialog.AlertDialog(
                     title = "Unknown",
                     message = exception.toString(),
                 ),
@@ -36,7 +36,7 @@ open class BaseViewModel : ViewModel() {
 
     private var callApi: suspend CoroutineScope.() -> Unit = {}
 
-    open fun showError(error: AppDomainException) {}
+    open fun showError(error: wangyeo.interview.data.exceptions.AppDomainException) {}
 
     open fun hideError() {}
 

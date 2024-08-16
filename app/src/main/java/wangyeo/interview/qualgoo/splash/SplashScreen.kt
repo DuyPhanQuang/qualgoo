@@ -15,7 +15,7 @@ import com.airbnb.lottie.compose.LottieCompositionSpec
 import com.airbnb.lottie.compose.animateLottieCompositionAsState
 import com.airbnb.lottie.compose.rememberLottieComposition
 import wangyeo.interview.feature.common.R
-import wangyeo.interview.feature.common.base.BaseAppState
+import wangyeo.interview.qualgoo.BaseAppState
 import wangyeo.interview.theme.AppTheme
 
 @Composable
