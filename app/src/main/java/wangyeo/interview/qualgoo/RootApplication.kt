@@ -20,7 +20,7 @@ class RootApplication : Application() {
         } else {
             packageManager.getApplicationInfo(packageName, PackageManager.GET_META_DATA)
         }
-        val value = appInfo.metaData.getString("com.google.android.geo.API_KEY") ?: ""
+        val value = appInfo.metaData.getString("com.google.android.geo.API_KEY") ?: "123456"
 
         Places.initialize(this, value)
 
