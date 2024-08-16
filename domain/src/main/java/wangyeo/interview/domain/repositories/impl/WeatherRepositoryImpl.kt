@@ -10,7 +10,7 @@ import wangyeo.interview.data.remote.api.OneCallApiService
 import wangyeo.interview.domain.repositories.WeatherRepository
 import javax.inject.Inject
 
-const val API_KEY = ""
+const val API_KEY = "9d7088ba0c323e044e54352ffb44ca2e"
 
 class WeatherRepositoryImpl @Inject constructor(
     private val currentWeatherApiService: CurrentWeatherApiService,
