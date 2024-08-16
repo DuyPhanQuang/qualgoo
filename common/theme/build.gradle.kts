@@ -6,3 +6,6 @@ plugins {
 dependencies {
 
 }
+android {
+    namespace = "wangyeo.interview.theme"
+}

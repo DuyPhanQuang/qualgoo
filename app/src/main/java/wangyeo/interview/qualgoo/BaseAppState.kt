@@ -20,6 +20,8 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 import wangyeo.interview.core.utils.openAppSettings
+import wangyeo.interview.qualgoo.routes.DrawerTab
+import wangyeo.interview.qualgoo.routes.Screen
 
 @OptIn(ExperimentalAnimationApi::class)
 @Composable
@@ -38,20 +40,20 @@ class BaseAppState(
     val drawer: DrawerState,
     val snackBarHost: SnackbarHostState,
 ) {
-    private val drawerTabs = wangyeo.interview.qualgoo.routes.DrawerTab.values()
+    private val drawerTabs = DrawerTab.values()
 
     val shouldEnableGesture: Boolean
         @Composable get() = controller.currentBackStackEntryAsState().value?.destination?.route in drawerTabs.map { it.route }
 
-    val drawerItemSelected: wangyeo.interview.qualgoo.routes.DrawerTab
+    val drawerItemSelected: DrawerTab
         @Composable get() {
             val route = controller.currentBackStackEntryAsState().value?.destination?.route
-            return drawerTabs.firstOrNull { it.route == route } ?: wangyeo.interview.qualgoo.routes.DrawerTab.HOME
+            return drawerTabs.firstOrNull { it.route == route } ?: DrawerTab.HOME
         }
 
     val isCustomDarkMode: Boolean
         get() {
-            val listScreenCustomizeDarkMode = listOf(wangyeo.interview.qualgoo.routes.Screen.SearchByMap.route)
+            val listScreenCustomizeDarkMode = listOf(Screen.SearchByMap.route)
             val route = controller.currentBackStackEntry?.destination?.route
             return route in listScreenCustomizeDarkMode
         }
@@ -108,7 +110,7 @@ class BaseAppState(
 
     fun navigateToHome() {
         closeDrawer()
-        controller.navigate(route = wangyeo.interview.qualgoo.routes.Screen.Home.route) {
+        controller.navigate(route = Screen.Home.route) {
             popUpTo(wangyeo.interview.qualgoo.routes.Screen.Splash.route) {
                 inclusive = true
             }

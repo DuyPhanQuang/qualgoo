@@ -10,3 +10,6 @@ dependencies {
     COMMON_THEME
     COMMON_COMPOSABLE
 }
+android {
+    namespace = "wangyeo.interview.feature.common"
+}

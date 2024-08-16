@@ -7,3 +7,6 @@ dependencies {
     CORE
     DATA
 }
+android {
+    namespace = "wangyeo.interview.domain"
+}

@@ -6,3 +6,6 @@ plugins {
 dependencies {
     CORE
 }
+android {
+    namespace = "wangyeo.interview.data"
+}

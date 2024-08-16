@@ -11,3 +11,6 @@ dependencies {
     COMMON_COMPOSABLE
     FEATURE_COMMON
 }
+android {
+    namespace = "wangyeo.interview.feature.home"
+}
