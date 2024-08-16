@@ -5,7 +5,7 @@ import com.google.android.gms.maps.model.LatLng
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow
-import wangyeo.interview.core.di.MainDispatcher
+import wangyeo.interview.domain.di.MainDispatcher
 import wangyeo.interview.core.extensions.asFlow
 import wangyeo.interview.data.models.CurrentWeather
 import wangyeo.interview.data.exceptions.AppDomainException

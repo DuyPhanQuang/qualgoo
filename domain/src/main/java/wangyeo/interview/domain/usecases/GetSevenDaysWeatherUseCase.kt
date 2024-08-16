@@ -5,7 +5,7 @@ import com.google.android.gms.maps.model.LatLng
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow
-import wangyeo.interview.core.di.IoDispatcher
+import wangyeo.interview.domain.di.IoDispatcher
 import wangyeo.interview.core.extensions.asFlow
 import wangyeo.interview.data.models.OneCallResponse
 import wangyeo.interview.data.exceptions.AppDomainException

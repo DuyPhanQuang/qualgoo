@@ -1,4 +1,4 @@
-package wangyeo.interview.core.di
+package wangyeo.interview.domain.di
 
 import javax.inject.Qualifier
 

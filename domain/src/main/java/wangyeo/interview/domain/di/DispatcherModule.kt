@@ -1,13 +1,11 @@
+package wangyeo.interview.domain.di
+
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
-import wangyeo.interview.core.di.DefaultDispatcher
-import wangyeo.interview.core.di.IoDispatcher
-import wangyeo.interview.core.di.MainDispatcher
-import wangyeo.interview.core.di.MainImmediateDispatcher
 
 @InstallIn(SingletonComponent::class)
 @Module

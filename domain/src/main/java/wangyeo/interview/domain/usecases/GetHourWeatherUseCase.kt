@@ -6,7 +6,7 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
-import wangyeo.interview.core.di.MainDispatcher
+import wangyeo.interview.domain.di.MainDispatcher
 import wangyeo.interview.core.extensions.asFlow
 import wangyeo.interview.data.models.Hourly
 import wangyeo.interview.data.exceptions.AppDomainException

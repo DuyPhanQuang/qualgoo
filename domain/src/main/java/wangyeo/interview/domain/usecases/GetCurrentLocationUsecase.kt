@@ -3,7 +3,7 @@ package wangyeo.interview.domain.usecases
 import com.google.android.gms.maps.model.LatLng
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow
-import wangyeo.interview.core.di.MainDispatcher
+import wangyeo.interview.domain.di.MainDispatcher
 import wangyeo.interview.domain.repositories.LocationRepository
 import wangyeo.interview.domain.usecases.base.FlowUseCase
 import javax.inject.Inject

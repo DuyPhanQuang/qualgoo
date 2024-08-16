@@ -111,7 +111,7 @@ class BaseAppState(
     fun navigateToHome() {
         closeDrawer()
         controller.navigate(route = Screen.Home.route) {
-            popUpTo(wangyeo.interview.qualgoo.routes.Screen.Splash.route) {
+            popUpTo(Screen.Splash.route) {
                 inclusive = true
             }
         }
@@ -120,8 +120,8 @@ class BaseAppState(
     fun navigateToCurrentWeather() {
         closeDrawer()
 
-        controller.navigate(route = wangyeo.interview.qualgoo.routes.Screen.Home.route) {
-            popUpTo(wangyeo.interview.qualgoo.routes.Screen.Home.route) {
+        controller.navigate(route = Screen.Home.route) {
+            popUpTo(Screen.Home.route) {
                 inclusive = true
             }
         }
@@ -130,7 +130,7 @@ class BaseAppState(
     fun navigateToSevenDaysWeather() {
         closeDrawer()
 
-        controller.navigate(route = wangyeo.interview.qualgoo.routes.Screen.SevenDaysWeather.route)
+        controller.navigate(route = Screen.SevenDaysWeather.route)
     }
 
     fun openAppSetting(context: Context) {
