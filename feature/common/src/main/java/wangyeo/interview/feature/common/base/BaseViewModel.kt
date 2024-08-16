@@ -17,12 +17,12 @@ open class BaseViewModel : ViewModel() {
     private val coroutineExceptionHandler = CoroutineExceptionHandler { _, exception ->
         Timber.e(exception.message)
         hideLoading()
-        val errorResponse = if (exception is wangyeo.interview.data.exceptions.AppDomainException) {
+        val errorResponse = if (exception is AppDomainException) {
             exception
         } else {
-            wangyeo.interview.data.exceptions.AppDomainException.AlertException(
+            AppDomainException.AlertException(
                 code = -1,
-                alertDialog = wangyeo.interview.data.dialog.AlertDialog(
+                alertDialog = AlertDialog(
                     title = "Unknown",
                     message = exception.toString(),
                 ),

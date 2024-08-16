@@ -4,5 +4,5 @@ import wangyeo.interview.data.exceptions.AppDomainException
 
 open class ViewState(
     open val isLoading: Boolean = false,
-    open val error: wangyeo.interview.data.exceptions.AppDomainException? = null,
+    open val error: AppDomainException? = null,
 )
