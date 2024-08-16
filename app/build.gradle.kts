@@ -89,7 +89,7 @@ android {
         kotlinCompilerExtensionVersion = AppConfig.KotlinCompilerExtension
     }
 
-    packagingOptions {
+    packaging  {
         resources.excludes.add("META-INF/**/*")
     }
 }
