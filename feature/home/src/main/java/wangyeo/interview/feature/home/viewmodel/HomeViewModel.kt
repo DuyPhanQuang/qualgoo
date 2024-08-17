@@ -8,18 +8,15 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
-import kotlinx.coroutines.flow.zip
 import wangyeo.interview.core.enums.ActionType
 import wangyeo.interview.data.dialog.AlertDialog
 import wangyeo.interview.data.exceptions.AppDomainException
 import wangyeo.interview.domain.usecases.GetCurrentLocationUseCase
 import wangyeo.interview.domain.usecases.GetCurrentWeatherUseCase
-import wangyeo.interview.domain.usecases.GetHourWeatherUseCase
 import wangyeo.interview.domain.usecases.GetLocationFromTextUseCase
 import wangyeo.interview.feature.common.base.BaseViewModel
 import wangyeo.interview.feature.common.global.Constants
 import wangyeo.interview.feature.home.models.CurrentWeatherMapper
-import wangyeo.interview.feature.home.models.HourWeatherMapper
 import wangyeo.interview.feature.common.R
 import javax.inject.Inject
 
@@ -30,8 +27,6 @@ class HomeViewModel @Inject constructor(
     private val getCurrentWeatherUseCase: GetCurrentWeatherUseCase,
     private val getCurrentLocationUseCase: GetCurrentLocationUseCase,
     private val currentWeatherMapper: CurrentWeatherMapper,
-    private val getHourWeatherUseCase: GetHourWeatherUseCase,
-    private val hourWeatherMapper: HourWeatherMapper,
     private val getLocationFromTextUseCase: GetLocationFromTextUseCase,
 ) : BaseViewModel() {
     private val _state = MutableStateFlow(HomeViewState())
@@ -106,23 +101,12 @@ class HomeViewModel @Inject constructor(
                 currentLocation = latLng
             }
 
-            getCurrentWeatherUseCase(GetCurrentWeatherUseCase.Params(currentLocation)).zip(
-                getHourWeatherUseCase(GetHourWeatherUseCase.Params(currentLocation)),
-                transform = { currentWeather, hourWeather ->
-                    HomeViewState(
-                        currentWeather = currentWeatherMapper.mapToViewData(currentWeather),
-                        listHourlyWeatherToday = hourWeather.today.map { hourly ->
-                            hourWeatherMapper.mapToViewData(hourly)
-                        },
-                    )
-                },
-            ).collect { viewState ->
+            getCurrentWeatherUseCase(GetCurrentWeatherUseCase.Params(currentLocation)).collect { currentWeather ->
                 _state.update {
                     it.copy(
                         isLoading = false,
                         isRefresh = false,
-                        currentWeather = viewState.currentWeather,
-                        listHourlyWeatherToday = viewState.listHourlyWeatherToday,
+                        currentWeather = currentWeatherMapper.mapToViewData(currentWeather),
                     )
                 }
             }
@@ -161,5 +145,12 @@ class HomeViewModel @Inject constructor(
 
         getCurrentLocation()
     }
+
+    fun navigateToSearchByText() {
+        _state.update {
+            it.copy(navigateSearch = currentLocation)
+        }
+    }
+
 
 }

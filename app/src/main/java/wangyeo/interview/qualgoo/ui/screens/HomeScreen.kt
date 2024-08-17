@@ -121,7 +121,7 @@ fun HomeScreen(
             viewModel.hideError()
         },
         onNavigateSearch = {
-
+            viewModel.navigateToSearchByText()
         },
         onErrorPositiveAction = { action, _ ->
             action?.let {

@@ -37,11 +37,4 @@ class WeatherRepositoryImpl @Inject constructor(
         lang = Locale.current.language,
         appId = API_KEY,
     )
-
-    override fun getSevenDaysWeather(latLng: LatLng): Flow<OneCallResponse> = oneCallApiService.getSevenDaysWeather(
-        lat = latLng.latitude,
-        lon = latLng.longitude,
-        lang = Locale.current.language,
-        appId = API_KEY,
-    )
 }
