@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1039180218134",
+    "project_id": "qualgoo-a7ade",
+    "storage_bucket": "qualgoo-a7ade.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1039180218134:android:cb07a4671232e8a8d3da37",
+        "android_client_info": {
+          "package_name": "wangyeo.interview.qualgoo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCjVz2lTQAVaE9OA_FsNNQlZ5rlaHsJnWg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

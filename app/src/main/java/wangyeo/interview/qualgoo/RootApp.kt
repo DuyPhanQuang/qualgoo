@@ -71,9 +71,6 @@ fun RootApp(appState: BaseAppState = rememberBaseAppState()) {
                             appState.closeDrawer()
                         }
                     },
-                    onClickSevenDaysWeather = {
-
-                    },
                 )
             }
         },

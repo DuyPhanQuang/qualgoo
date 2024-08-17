@@ -30,7 +30,6 @@ import wangyeo.interview.qualgoo.routes.DrawerTab
 fun ColumnScope.AppDrawerContent(
     selectedItem: DrawerTab,
     onClickCurrentWeather: () -> Unit = {},
-    onClickSevenDaysWeather: () -> Unit = {},
 ) {
     Spacer(modifier = Modifier.windowInsetsTopHeight(WindowInsets.statusBars))
 
@@ -64,22 +63,6 @@ fun ColumnScope.AppDrawerContent(
         },
         selected = DrawerTab.HOME == selectedItem,
         onClick = onClickCurrentWeather,
-        modifier = Modifier.padding(NavigationDrawerItemDefaults.ItemPadding),
-    )
-
-    NavigationDrawerItem(
-        icon = {
-            Icon(
-                painter = painterResource(id = DrawerTab.SEVEN_DAYS_WEATHER.icon),
-                modifier = Modifier.size(24.dp),
-                contentDescription = null,
-            )
-        },
-        label = {
-            Text(text = stringResource(id = R.string.seven_days_weather_tab))
-        },
-        selected = DrawerTab.SEVEN_DAYS_WEATHER == selectedItem,
-        onClick = onClickSevenDaysWeather,
         modifier = Modifier.padding(NavigationDrawerItemDefaults.ItemPadding),
     )
 

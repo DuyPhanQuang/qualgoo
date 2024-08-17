@@ -14,13 +14,9 @@ enum class DrawerTab(
         title = R.string.current_weather_tab,
         icon = R.drawable.ic_cloud,
     ),
-    SEVEN_DAYS_WEATHER(
-        route = Screen.SevenDaysWeather.route,
-        title = R.string.seven_days_weather_tab,
-        icon = R.drawable.ic_calendar,
-    ),
 }
 
 enum class NestedGraph(val route: String) {
-    HOME(route = "home_nav"), SPLASH(route = "splash_nav"),
+    HOME(route = "home_nav"),
+    SPLASH(route = "splash_nav"),
 }
