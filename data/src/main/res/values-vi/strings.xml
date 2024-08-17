@@ -15,4 +15,6 @@
     <string name="error_message_address_is_not_found">Không thể xác định được địa chỉ này!</string>
     <string name="error_message_network">Lỗi - Mạng</string>
     <string name="error_message_http">Mã: %1$d\nUrl: %2$s</string>
+    <string name="retry">Thử lại</string>
+    <string name="invalid">Khong hop le</string>
 </resources>

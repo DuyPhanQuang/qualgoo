@@ -21,6 +21,7 @@ import wangyeo.interview.feature.common.base.ViewState
 import wangyeo.interview.core.enums.ActionType
 import wangyeo.interview.data.dialog.AlertDialog
 import wangyeo.interview.data.exceptions.AppDomainException
+import wangyeo.interview.feature.common.R
 
 @Composable
 fun <VS : ViewState> AppHandleError(
@@ -96,7 +97,7 @@ fun HandleError(
 
         else -> {
             LaunchedEffect(key1 = true) {
-                onShowSnackBar.invoke(error.message ?: "")
+                onShowSnackBar.invoke(error.message ?: context.getString(R.string.error_message_default))
                 onDismissRequest.invoke()
             }
         }

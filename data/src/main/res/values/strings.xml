@@ -15,4 +15,6 @@
     <string name="error_message_address_is_not_found">Cannot get the address!</string>
     <string name="error_message_city_is_invalid">City is invalid!</string>
     <string name="error_message_lat_lng_are_invalid">Latitude and Longitude are invalid!</string>
+    <string name="retry">Retry</string>
+    <string name="invalid">Invalid</string>
 </resources>

@@ -13,40 +13,40 @@ class AppDataExceptionMapper @Inject constructor(@ApplicationContext private val
     fun mapperToAppDomainException(throwable: ResponseException): Throwable = when (throwable.getKind()) {
         ResponseException.Kind.NETWORK -> AppDomainException.SnackBarException(
             code = -1,
-            message = "",
+            message = context.getString(R.string.error_message_network),
         )
 
         ResponseException.Kind.PREFERENCE -> AppDomainException.SnackBarException(
             code = -1,
-            message = "",
+            message = context.getString(R.string.error_message_preferences),
         )
 
         ResponseException.Kind.HTTP -> {
             val errorCode = throwable.getResponse()?.code() ?: -1
-            val errorUrl = throwable.getRetrofit()?.baseUrl() ?: ""
+            val errorUrl = throwable.getRetrofit()?.baseUrl() ?: context.getString(R.string.invalid)
 
             AppDomainException.AlertException(
                 code = errorCode,
                 alertDialog = AlertDialog(
-                    title = "",
-                    message = "",
+                    title = context.getString(R.string.error_title_http),
+                    message = context.getString(R.string.error_message_http, errorCode, errorUrl),
                     positiveAction = ActionType.RETRY_API,
-                    positiveMessage = ""
+                    positiveMessage = context.getString(R.string.retry)
                 ),
             )
         }
 
         ResponseException.Kind.HTTP_WITH_OBJECT -> {
             val errorCode: Int = throwable.getResponse()?.code() ?: -1
-            val errorUrl = throwable.getRetrofit()?.baseUrl() ?: ""
+            val errorUrl = throwable.getRetrofit()?.baseUrl() ?: context.getString(R.string.invalid)
 
             AppDomainException.AlertException(
                 code = errorCode,
                 alertDialog = AlertDialog(
-                    title = "",
-                    message = "",
+                    title = context.getString(R.string.error_title_http),
+                    message = context.getString(R.string.error_message_http, errorCode, errorUrl),
                     positiveAction = ActionType.RETRY_API,
-                    positiveMessage = ""
+                    positiveMessage = context.getString(R.string.retry)
                 ),
             )
         }
