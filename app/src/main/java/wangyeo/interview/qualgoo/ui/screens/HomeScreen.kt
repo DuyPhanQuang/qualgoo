@@ -18,6 +18,7 @@ import wangyeo.interview.feature.common.global.Constants
 import wangyeo.interview.feature.home.ui.components.CurrentWeatherView
 import wangyeo.interview.feature.home.viewmodel.HomeViewModel
 import wangyeo.interview.qualgoo.BaseAppState
+import wangyeo.interview.qualgoo.routes.Screen
 
 @OptIn(ExperimentalPermissionsApi::class, ExperimentalMaterialApi::class)
 @Composable
@@ -48,11 +49,22 @@ fun HomeScreen(
         }
     }
 
+    // Get data with location
     LaunchedEffect(true) {
         appState.getDataFromNextScreen(Constants.Key.LAT_LNG, Constants.Default.LAT_LNG_DEFAULT)?.collect {
             if (it != LatLng(0.0, 0.0)) {
                 viewModel.getWeatherByLocation(it)
                 appState.removeDataFromNextScreen<LatLng>(Constants.Key.LAT_LNG)
+            }
+        }
+    }
+
+    // Get data from back after selected address
+    LaunchedEffect(true) {
+        appState.getDataFromNextScreen(Constants.Key.ADDRESS_NAME, Constants.Default.ADDRESS_NAME_DEFAULT)?.collect {
+            if (it.isNotBlank()) {
+                viewModel.getWeatherByAddressName(addressName = it)
+                appState.removeDataFromNextScreen<LatLng>(Constants.Key.ADDRESS_NAME)
             }
         }
     }
@@ -66,6 +78,7 @@ fun HomeScreen(
 
     // Get event
     LaunchedEffect(state) {
+        val navigateToSearch = state.navigateSearch
         val requestPermission = state.isRequestPermission
 
         when {
@@ -83,6 +96,10 @@ fun HomeScreen(
                         locationPermissionState.launchMultiplePermissionRequest()
                     }
                 }
+            }
+
+            navigateToSearch != null -> {
+                appState.navigateToSearchByText(Screen.Home, navigateToSearch)
             }
 
             else -> return@LaunchedEffect

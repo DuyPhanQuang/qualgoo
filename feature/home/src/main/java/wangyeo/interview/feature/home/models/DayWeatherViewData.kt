@@ -5,6 +5,7 @@ import androidx.compose.ui.text.intl.Locale
 import wangyeo.interview.data.models.Daily
 import wangyeo.interview.feature.common.extensions.toDateTime
 import wangyeo.interview.feature.common.global.Constants
+import wangyeo.interview.feature.common.models.DataModelMapper
 import wangyeo.interview.feature.common.models.ViewData
 import wangyeo.interview.feature.home.extensions.toIcon
 import javax.inject.Inject
@@ -23,7 +24,8 @@ data class DayWeatherViewData(
     val isExpanded: Boolean = false,
 ) : ViewData()
 
-class SevenWeatherViewDataMapper @Inject constructor() : DataModelMapper<Daily, DayWeatherViewData> {
+class SevenWeatherViewDataMapper @Inject constructor() :
+    DataModelMapper<Daily, DayWeatherViewData> {
     override fun mapToModel(viewData: DayWeatherViewData): Daily {
         TODO("Not yet implemented")
     }

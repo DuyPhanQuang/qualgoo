@@ -1,4 +1,4 @@
-package wangyeo.interview.domain.repositories
+package wangyeo.interview.data.repositories
 
 import com.google.android.gms.maps.model.LatLng
 import kotlinx.coroutines.flow.Flow

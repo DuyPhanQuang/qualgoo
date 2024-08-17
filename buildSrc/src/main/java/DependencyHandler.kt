@@ -65,6 +65,12 @@ fun DependencyHandler.composeDependencies() {
     implementation(Libraries.Google.PlayServices.location)
     implementation(Libraries.Google.maps)
     implementation(Libraries.Google.places)
+
+    //room
+    implementation(Libraries.Room.runtime)
+    implementation(Libraries.Room.ktx)
+    implementation(Libraries.Room.compiler)
+    kapt(Libraries.Room.compiler)
 }
 
 fun DependencyHandler.accompanistDependencies() {
@@ -124,6 +130,7 @@ fun DependencyHandler.moduleDependencies() {
     COMMON_COMPOSABLE
     FEATURE_HOME
     FEATURE_COMMON
+    FEATURE_SEARCH
 }
 
 val DependencyHandler.CORE
@@ -146,3 +153,6 @@ val DependencyHandler.FEATURE_HOME
 
 val DependencyHandler.FEATURE_COMMON
     get() = implementation(project(mapOf("path" to ":feature:common")))
+
+val DependencyHandler.FEATURE_SEARCH
+    get() = implementation(project(mapOf("path" to ":feature:search")))

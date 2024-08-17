@@ -39,9 +39,7 @@ fun RootApp(appState: BaseAppState = rememberBaseAppState()) {
     val localContext = LocalContext.current
 
     SideEffect {
-        if (!appState.isCustomDarkMode) {
-            systemUiController.setSystemBarsColor(color = Color.Transparent, darkIcons = !darkIcons)
-        }
+        systemUiController.setSystemBarsColor(color = Color.Transparent, darkIcons = !darkIcons)
     }
 
     DisposableEffect(true) {
@@ -74,11 +72,7 @@ fun RootApp(appState: BaseAppState = rememberBaseAppState()) {
                         }
                     },
                     onClickSevenDaysWeather = {
-                        if (!appState.currentDestinationIs(Screen.SevenDaysWeather.route)) {
-                            appState.navigateToSevenDaysWeather()
-                        } else {
-                            appState.closeDrawer()
-                        }
+
                     },
                 )
             }

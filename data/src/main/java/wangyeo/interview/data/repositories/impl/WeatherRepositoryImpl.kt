@@ -1,4 +1,4 @@
-package wangyeo.interview.domain.repositories.impl
+package wangyeo.interview.data.repositories.impl
 
 import androidx.compose.ui.text.intl.Locale
 import com.google.android.gms.maps.model.LatLng
@@ -7,7 +7,7 @@ import wangyeo.interview.data.models.CurrentWeather
 import wangyeo.interview.data.models.OneCallResponse
 import wangyeo.interview.data.remote.api.CurrentWeatherApiService
 import wangyeo.interview.data.remote.api.OneCallApiService
-import wangyeo.interview.domain.repositories.WeatherRepository
+import wangyeo.interview.data.repositories.WeatherRepository
 import javax.inject.Inject
 
 const val API_KEY = "9d7088ba0c323e044e54352ffb44ca2e"

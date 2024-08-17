@@ -18,6 +18,7 @@ import Version.TruthExt
 object Version {
     const val CoreKtx = "1.12.0"
     const val AppCompat = "1.6.1"
+    const val AndroidXCompose = "1.6.0-beta01"
     const val ComposeBom = "2023.10.01"
     const val AndroidXLifeCycle = "2.6.2"
     const val NavigationCompose = "2.7.5"
@@ -64,13 +65,13 @@ object Libraries {
 
     object Compose {
         const val composeBom = "androidx.compose:compose-bom:${Version.ComposeBom}"
-        const val composeUi = "androidx.compose.ui:ui"
-        const val composeUiToolingPreview = "androidx.compose.ui:ui-tooling-preview"
-        const val composeMaterial3 = "androidx.compose.material3:material3"
+        const val composeUi = "androidx.compose.ui:ui:${Version.AndroidXCompose}"
+        const val composeUiToolingPreview = "androidx.compose.ui:ui-tooling-preview:${Version.AndroidXCompose}"
+        const val composeMaterial3 = "androidx.compose.material3:material3:1.2.0-alpha11"
         const val composeFoundation = "androidx.compose.foundation:foundation"
         const val composeRuntime = "androidx.compose.runtime:runtime"
         const val composeActivity = "androidx.activity:activity-compose:${Version.AndroidXActivity}"
-        const val composeUiUtil = "androidx.compose.ui:ui-util"
+        const val composeUiUtil = "androidx.compose.ui:ui-util:${Version.AndroidXCompose}"
         const val constraintLayoutCompose =
             "androidx.constraintlayout:constraintlayout-compose:$ConstraintLayoutCompose"
     }
@@ -88,6 +89,12 @@ object Libraries {
         }
         const val maps = "com.google.maps.android:maps-compose:2.9.1"
         const val places = "com.google.android.libraries.places:places:3.3.0"
+    }
+
+    object Room {
+        const val runtime = "androidx.room:room-runtime:2.6.0"
+        const val ktx = "androidx.room:room-ktx:2.6.0"
+        const val compiler = "androidx.room:room-ktx:2.6.0"
     }
 
     object Timber {

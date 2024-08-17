@@ -21,4 +21,7 @@
     <string name="current_weather_tab">Current weather</string>
     <string name="seven_days_weather_tab">7 days weather</string>
     <string name="another_group_tab">Another</string>
+
+    <!-- Search -->
+    <string name="search_every_where_you_want">Search every things you want!</string>
 </resources>

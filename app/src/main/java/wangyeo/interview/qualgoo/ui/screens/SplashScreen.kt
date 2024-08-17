@@ -1,4 +1,4 @@
-package wangyeo.interview.qualgoo.splash
+package wangyeo.interview.qualgoo.ui.screens
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.Box

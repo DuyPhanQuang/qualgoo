@@ -15,6 +15,7 @@ import wangyeo.interview.data.exceptions.AppDomainException
 import wangyeo.interview.domain.usecases.GetCurrentLocationUseCase
 import wangyeo.interview.domain.usecases.GetCurrentWeatherUseCase
 import wangyeo.interview.domain.usecases.GetHourWeatherUseCase
+import wangyeo.interview.domain.usecases.GetLocationFromTextUseCase
 import wangyeo.interview.feature.common.base.BaseViewModel
 import wangyeo.interview.feature.common.global.Constants
 import wangyeo.interview.feature.home.models.CurrentWeatherMapper
@@ -31,6 +32,7 @@ class HomeViewModel @Inject constructor(
     private val currentWeatherMapper: CurrentWeatherMapper,
     private val getHourWeatherUseCase: GetHourWeatherUseCase,
     private val hourWeatherMapper: HourWeatherMapper,
+    private val getLocationFromTextUseCase: GetLocationFromTextUseCase,
 ) : BaseViewModel() {
     private val _state = MutableStateFlow(HomeViewState())
     val state: StateFlow<HomeViewState> = _state
@@ -85,6 +87,16 @@ class HomeViewModel @Inject constructor(
         retryViewModelScope {
             showLoading()
             getCurrentWeather(latLng)
+        }
+    }
+
+    fun getWeatherByAddressName(addressName: String) {
+        retryViewModelScope {
+            showLoading()
+            getLocationFromTextUseCase(GetLocationFromTextUseCase.Params(addressName)).collect {
+                val latLng = LatLng(it.latitude, it.longitude)
+                getCurrentWeather(latLng)
+            }
         }
     }
 

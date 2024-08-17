@@ -1,6 +1,5 @@
-package wangyeo.interview.feature.home.models
+package wangyeo.interview.feature.common.models
 
-import wangyeo.interview.feature.common.models.ViewData
 import wangyeo.interview.data.models.Model
 
 interface DataModelMapper<M : Model, VD : ViewData> {

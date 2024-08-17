@@ -1,4 +1,4 @@
-package wangyeo.interview.domain.repositories.impl
+package wangyeo.interview.data.repositories.impl
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -21,9 +21,10 @@ import kotlinx.coroutines.flow.flatMapConcat
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.suspendCancellableCoroutine
 import timber.log.Timber
+import wangyeo.interview.core.extensions.getSystemLocale
 import wangyeo.interview.data.R
 import wangyeo.interview.data.exceptions.AppDomainException
-import wangyeo.interview.domain.repositories.LocationRepository
+import wangyeo.interview.data.repositories.LocationRepository
 import javax.inject.Inject
 import kotlin.coroutines.resume
 import kotlin.coroutines.resumeWithException
@@ -81,7 +82,7 @@ class LocationRepositoryImpl @Inject constructor(
                 )
 
                 val getSystemLocale =
-                    context.resources.configuration.locales[0]
+                    context.getSystemLocale()
 
                 val geo = Geocoder(context, getSystemLocale)
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
@@ -113,7 +114,7 @@ class LocationRepositoryImpl @Inject constructor(
                 message = context.getString(R.string.error_message_current_address_is_not_found)
             )
 
-            val getSystemLocale = context.resources.configuration.locales[0]
+            val getSystemLocale =  context.getSystemLocale()
 
             val geo = Geocoder(context, getSystemLocale)
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
@@ -143,7 +144,7 @@ class LocationRepositoryImpl @Inject constructor(
             val error = AppDomainException.SnackBarException(
                 -1, context.getString(R.string.error_message_address_is_not_found)
             )
-            val getSystemLocale = context.resources.configuration.locales[0]
+            val getSystemLocale =  context.getSystemLocale()
 
             val geo = Geocoder(context, getSystemLocale)
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {

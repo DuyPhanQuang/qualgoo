@@ -3,6 +3,7 @@ package wangyeo.interview.feature.home.models
 import wangyeo.interview.data.models.Hourly
 import wangyeo.interview.feature.common.extensions.toDateTime
 import wangyeo.interview.feature.common.global.Constants
+import wangyeo.interview.feature.common.models.DataModelMapper
 import wangyeo.interview.feature.common.models.ViewData
 import wangyeo.interview.feature.home.extensions.toIcon
 import javax.inject.Inject

@@ -21,4 +21,7 @@
     <string name="current_weather_tab">Thời tiết hiện tại</string>
     <string name="seven_days_weather_tab">Dự báo 7 ngày</string>
     <string name="another_group_tab">Khác</string>
+
+    <!-- Search -->
+    <string name="search_every_where_you_want">Tìm kiếm bất kì đâu bạn muốn …</string>
 </resources>

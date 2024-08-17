@@ -6,6 +6,7 @@ import wangyeo.interview.feature.common.extensions.toDateTime
 import wangyeo.interview.feature.common.global.Constants
 import wangyeo.interview.feature.common.models.ViewData
 import wangyeo.interview.data.models.CurrentWeather
+import wangyeo.interview.feature.common.models.DataModelMapper
 import wangyeo.interview.feature.home.extensions.toBackground
 import javax.inject.Inject
 
@@ -21,7 +22,8 @@ data class CurrentWeatherViewData(
     val background: Int,
 ) : ViewData()
 
-class CurrentWeatherMapper @Inject constructor() : DataModelMapper<CurrentWeather, CurrentWeatherViewData> {
+class CurrentWeatherMapper @Inject constructor() :
+    DataModelMapper<CurrentWeather, CurrentWeatherViewData> {
     override fun mapToModel(viewData: CurrentWeatherViewData): CurrentWeather {
         TODO("Not yet implemented")
     }

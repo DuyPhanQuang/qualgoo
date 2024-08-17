@@ -13,6 +13,7 @@ import androidx.compose.ui.text.intl.Locale
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.google.accompanist.navigation.animation.rememberAnimatedNavController
+import com.google.android.gms.maps.model.LatLng
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.Flow
@@ -49,13 +50,6 @@ class BaseAppState(
         @Composable get() {
             val route = controller.currentBackStackEntryAsState().value?.destination?.route
             return drawerTabs.firstOrNull { it.route == route } ?: DrawerTab.HOME
-        }
-
-    val isCustomDarkMode: Boolean
-        get() {
-            val listScreenCustomizeDarkMode = listOf(Screen.SearchByMap.route)
-            val route = controller.currentBackStackEntry?.destination?.route
-            return route in listScreenCustomizeDarkMode
         }
 
     private val _localeChange = Channel<Locale>()
@@ -127,10 +121,8 @@ class BaseAppState(
         }
     }
 
-    fun navigateToSevenDaysWeather() {
-        closeDrawer()
-
-        controller.navigate(route = Screen.SevenDaysWeather.route)
+    fun navigateToSearchByText(fromRoute: Screen, latLng: LatLng) {
+        controller.navigate(route = "${Screen.SearchByText.route}?lat=${latLng.latitude}&lng=${latLng.longitude}&from_route=${fromRoute.route}")
     }
 
     fun openAppSetting(context: Context) {

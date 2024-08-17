@@ -18,5 +18,6 @@ object Constants {
 
     object Default {
         val LAT_LNG_DEFAULT = LatLng(0.0, 0.0)
+        val ADDRESS_NAME_DEFAULT = ""
     }
 }
