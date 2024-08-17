@@ -12,6 +12,23 @@ Interview project
             android:value="${API_KEY}" />
 ```
 
+## Speed up build with Bazel
+
+`$ bazel build //app:example_app`
+
+```console
+❯ bazel build //app:example_app
+INFO: Analyzed target //app:example_app (0 packages loaded, 0 targets configured).
+INFO: Found 1 target...
+Target //app:example_app up-to-date:
+  bazel-bin/app/example_app_deploy.jar
+  bazel-bin/app/example_app_unsigned.apk
+  bazel-bin/app/example_app.apk
+INFO: Elapsed time: 0.771s, Critical Path: 0.00s
+INFO: 1 process: 1 internal.
+INFO: Build completed successfully, 1 total action
+```
+
 ## :blue_book: Features
 
 - Show the current weather by location or address name.
