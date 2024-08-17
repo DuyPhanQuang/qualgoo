@@ -12,7 +12,7 @@ Interview project
             android:value="${API_KEY}" />
 ```
 
-## Speed up build with Bazel
+## build with Bazel for speed up and manage code artifacts
 
 `$ bazel build //app:example_app`
 
