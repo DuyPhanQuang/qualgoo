@@ -94,7 +94,7 @@ object Libraries {
     object Room {
         const val runtime = "androidx.room:room-runtime:2.6.0"
         const val ktx = "androidx.room:room-ktx:2.6.0"
-        const val compiler = "androidx.room:room-ktx:2.6.0"
+        const val compiler = "androidx.room:room-compiler:2.6.0"
     }
 
     object Timber {

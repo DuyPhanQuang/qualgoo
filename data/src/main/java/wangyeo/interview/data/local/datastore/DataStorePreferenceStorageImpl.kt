@@ -8,6 +8,6 @@ class DataStorePreferenceStorageImpl @Inject constructor(
     private val dataStore: DataStore<Preferences>
 ) : DataStorePreferenceStorage {
     companion object {
-        const val PREFS_NAME = "my_weather_datastore"
+        const val PREFS_NAME = "app_datastore"
     }
 }

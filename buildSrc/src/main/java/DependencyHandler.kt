@@ -4,6 +4,9 @@ import org.gradle.api.artifacts.dsl.DependencyHandler
 fun DependencyHandler.implementation(dependencyNotation: Any): Dependency? =
     add("implementation", dependencyNotation)
 
+fun DependencyHandler.annotationProcessor(dependencyNotation: Any): Dependency? =
+    add("annotationProcessor", dependencyNotation)
+
 fun DependencyHandler.testImplementation(dependencyNotation: Any): Dependency? =
     add("testImplementation", dependencyNotation)
 
@@ -69,7 +72,7 @@ fun DependencyHandler.composeDependencies() {
     //room
     implementation(Libraries.Room.runtime)
     implementation(Libraries.Room.ktx)
-    implementation(Libraries.Room.compiler)
+    annotationProcessor(Libraries.Room.compiler)
     kapt(Libraries.Room.compiler)
 }
 

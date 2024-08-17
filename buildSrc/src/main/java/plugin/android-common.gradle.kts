@@ -9,7 +9,6 @@ import testDependencies
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
-    id("com.google.devtools.ksp")
     id("org.jetbrains.kotlin.plugin.parcelize")
     id("com.google.dagger.hilt.android")
     kotlin("kapt")
@@ -65,7 +64,7 @@ android {
     libraryVariants.all {
         kotlin.sourceSets {
             getByName(name) {
-                kotlin.srcDir(File("build/generated/ksp/$name/kotlin"))
+                kotlin.srcDir(File("build/generated/kapt/$name/kotlin"))
             }
         }
     }
