@@ -33,6 +33,7 @@ INFO: Build completed successfully, 1 total action
 
 - Show the current weather by location or address name.
 - Search location by address name by using Google Places.
+- Using Room database to manage(CRUD operations) result of search addresses (latlng, cities)
 - Support light/dark mode.
 - Support dynamic material from Android 13 and above.
 - Support locales.
@@ -49,6 +50,7 @@ INFO: Build completed successfully, 1 total action
 - Material3
 - Coroutine
 - Retrofit + okhttp3
+- Gson
 - Room
 - DataStore
 - Accompanist
