@@ -123,6 +123,9 @@ fun HomeScreen(
         onNavigateSearch = {
             viewModel.navigateToSearchByText()
         },
+        onGoToBook = {
+            viewModel.onGoToBook()
+        },
         onErrorPositiveAction = { action, _ ->
             action?.let {
                 when (it) {

@@ -31,6 +31,11 @@ android {
             useSupportLibrary = true
         }
 
+        ndk {
+            // Filter for architectures supported by Flutter
+            abiFilters += listOf("armeabi-v7a", "arm64-v8a", "x86_64")
+        }
+
 //        buildConfigField("String", "BASE_URL", properties.getProperty("BASE_URL"))
     }
 
@@ -63,6 +68,15 @@ android {
                 "firebase-crashlytics.pro"
             )
         }
+
+        create("profile") {
+            initWith(getByName("debug"))
+        }
+    }
+
+    configurations {
+        getByName("profileImplementation") {
+        }
     }
 
     testOptions {
@@ -94,6 +108,18 @@ android {
     packaging  {
         resources.excludes.add("META-INF/**/*")
     }
+
+    repositories{
+        val storageUrl = System.getenv("FLUTTER_STORAGE_BASE_URL") ?: "https://storage.googleapis.com"
+        repositories {
+            maven {
+                setUrl("../lib/build/host/outputs/repo")
+            }
+            maven {
+                setUrl("$storageUrl/download.flutter.io")
+            }
+        }
+    }
 }
 
 dependencies {
@@ -101,4 +127,8 @@ dependencies {
     composeDependencies()
     moduleDependencies()
     testDependencies()
+
+    debugImplementation("com.example.book:flutter_debug:1.0")
+    releaseImplementation("com.example.book:flutter_release:1.0")
+    add("profileImplementation", "com.example.book:flutter_profile:1.0")
 }

@@ -26,6 +26,7 @@ fun CurrentWeatherView(
     onShowSnackBar: (message: String) -> Unit = {},
     onNavigateSearch: () -> Unit = {},
     onErrorPositiveAction: (action: ActionType?, value: Any?) -> Unit = { _, _ -> },
+    onGoToBook: () -> Unit,
 ) {
     AppScaffold(
         modifier = Modifier.fillMaxSize(),
@@ -48,12 +49,14 @@ fun CurrentWeatherView(
                 CurrentWeatherContent(
                     currentWeather = it,
                     listHourly = viewState.listHourlyWeatherToday,
+                    onGoToBook = onGoToBook,
                 )
             }
 
             PullRefreshIndicator(
-                refreshing = state.isRefresh, state = pullRefreshState, modifier = Modifier.align(
-                    Alignment.TopCenter)
+                modifier = Modifier.align(Alignment.TopCenter),
+                refreshing = state.isRefresh,
+                state = pullRefreshState
             )
         }
     }
