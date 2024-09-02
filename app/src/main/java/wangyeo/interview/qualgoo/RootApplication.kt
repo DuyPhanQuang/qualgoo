@@ -3,12 +3,19 @@ package wangyeo.interview.qualgoo
 import android.app.Application
 import android.content.pm.PackageManager
 import android.os.Build
+import androidx.multidex.MultiDexApplication
 import com.google.android.libraries.places.api.Places
 import dagger.hilt.android.HiltAndroidApp
+import io.flutter.embedding.engine.FlutterEngine
+import io.flutter.embedding.engine.FlutterEngineCache
+import io.flutter.embedding.engine.dart.DartExecutor
 import timber.log.Timber
 
+const val ENGINE_ID = "1"
+
 @HiltAndroidApp
-class RootApplication : Application() {
+class RootApplication : MultiDexApplication() {
+    lateinit var flutterEngine : FlutterEngine
 
     override fun onCreate() {
         super.onCreate()
@@ -23,6 +30,20 @@ class RootApplication : Application() {
         val value = appInfo.metaData.getString("com.google.android.geo.API_KEY") ?: "123456"
 
         Places.initialize(this, value)
+
+        // Instantiate a FlutterEngine.
+        flutterEngine = FlutterEngine(this)
+
+        // Start executing Dart code to pre-warm the FlutterEngine.
+        flutterEngine
+            .dartExecutor
+            .executeDartEntrypoint(
+                DartExecutor.DartEntrypoint.createDefault()
+            )
+
+        // Cache the FlutterEngine to be used by FlutterActivity.
+        FlutterEngineCache.getInstance().put(ENGINE_ID, flutterEngine)
+
 
         val debug = true
         if (debug) {

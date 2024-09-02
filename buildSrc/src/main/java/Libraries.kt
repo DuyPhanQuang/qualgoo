@@ -63,6 +63,7 @@ object Libraries {
         const val liveData = "androidx.compose.runtime:runtime-livedata:${Version.AndroidXLiveData}"
         const val workManager = "androidx.work:work-runtime-ktx:2.8.1"
         const val splashScreen = "androidx.core:core-splashscreen:$SplashScreenApi"
+        const val multiDex = "androidx.multidex:multidex:2.0.1"
     }
 
     object Compose {

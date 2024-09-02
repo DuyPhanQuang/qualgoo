@@ -136,5 +136,8 @@ fun HomeScreen(
                 }
             }
         },
+        onGoToFlutterScreen = {
+            viewModel.goToFlutterActivity()
+        }
     )
 }

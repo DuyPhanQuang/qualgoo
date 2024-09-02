@@ -30,6 +30,12 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
+        multiDexEnabled = true
+
+        ndk {
+            // Filter for architectures supported by Flutter
+            abiFilters += listOf("armeabi-v7a", "arm64-v8a", "x86_64")
+        }
 
 //        buildConfigField("String", "BASE_URL", properties.getProperty("BASE_URL"))
     }
@@ -62,6 +68,15 @@ android {
                 "okhttp3.pro",
                 "firebase-crashlytics.pro"
             )
+        }
+
+        create("profile") {
+            initWith(getByName("debug"))
+        }
+    }
+
+    configurations {
+        getByName("profileImplementation") {
         }
     }
 
@@ -101,4 +116,14 @@ dependencies {
     composeDependencies()
     moduleDependencies()
     testDependencies()
+
+    implementation(kotlin("stdlib"))
+    implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
+
+    debugImplementation("com.example.channel_flutter:flutter_debug:1.0")
+    releaseImplementation("com.example.channel_flutter:flutter_release:1.0")
+    add("profileImplementation", "com.example.channel_flutter:flutter_profile:1.0")
+
+    // Add Flutter dependency
+    implementation(project(":demo_channel_flutter"))
 }

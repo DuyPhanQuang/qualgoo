@@ -90,6 +90,8 @@ fun DependencyHandler.accompanistDependencies() {
 fun DependencyHandler.baseDependencies() {
     implementation(Libraries.AndroidX.appCompat)
     implementation(Libraries.AndroidX.coreKtx)
+    implementation(Libraries.AndroidX.multiDex)
+
     //Lifecycle
     implementation(Libraries.AndroidX.lifecycleRunTimeKtx)
     implementation(Libraries.AndroidX.lifecycleRunTimeCompose)
@@ -115,7 +117,7 @@ fun DependencyHandler.baseDependencies() {
 }
 
 fun DependencyHandler.testDependencies() {
-    androidTestImplementation(Libraries.Test.testCoreKtx)
+//    runtimeOnly(Libraries.Test.testCoreKtx)
     androidTestImplementation(Libraries.Test.espressorCore)
     androidTestImplementation(Libraries.Test.runner)
     androidTestImplementation(Libraries.Test.junitExtKtx)

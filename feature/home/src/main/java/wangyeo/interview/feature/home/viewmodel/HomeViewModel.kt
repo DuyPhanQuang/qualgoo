@@ -19,6 +19,7 @@ import wangyeo.interview.feature.common.global.Constants
 import wangyeo.interview.feature.home.models.CurrentWeatherMapper
 import wangyeo.interview.feature.common.R
 import javax.inject.Inject
+import io.flutter.embedding.android.FlutterFragmentActivity
 
 @SuppressLint("StaticFieldLeak")
 @HiltViewModel
@@ -152,5 +153,10 @@ class HomeViewModel @Inject constructor(
         }
     }
 
-
+    fun goToFlutterActivity() {
+        val intent = FlutterFragmentActivity
+            .withCachedEngine("1")
+            .build(context)
+        context.startActivity(intent)
+    }
 }

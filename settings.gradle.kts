@@ -5,12 +5,17 @@ pluginManagement {
         gradlePluginPortal()
     }
 }
+
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
         google()
         mavenCentral()
         maven(url = "https://oss.sonatype.org/content/repositories/snapshots/")
+
+        val flutterStorageUrl = System.getenv("FLUTTER_STORAGE_BASE_URL") ?: "https://storage.googleapis.com"
+        maven(url = "C:\\Users\\Admin\\qualgoo\\channel_flutter\\build\\host\\outputs\\repo")
+        maven(url = "$flutterStorageUrl/download.flutter.io")
     }
 }
 
@@ -24,3 +29,5 @@ include(":domain")
 include(":feature:home")
 include(":feature:common")
 include(":feature:search")
+include(":demo_channel_flutter")
+project(":demo_channel_flutter").projectDir = file("C:\\Users\\Admin\\qualgoo\\channel_flutter")
