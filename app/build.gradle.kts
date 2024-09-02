@@ -31,7 +31,6 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
-        multiDexEnabled = true
 
         ndk {
             // Filter for architectures supported by Flutter
@@ -126,7 +125,4 @@ dependencies {
     debugImplementation("com.example.channel_flutter:flutter_debug:1.0")
     releaseImplementation("com.example.channel_flutter:flutter_release:1.0")
     add("profileImplementation", "com.example.channel_flutter:flutter_profile:1.0")
-
-    // Add Flutter dependency
-    implementation(project(":channel_flutter"))
 }

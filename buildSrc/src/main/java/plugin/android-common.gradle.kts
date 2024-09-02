@@ -94,14 +94,9 @@ dependencies {
     implementation(kotlin("stdlib"))
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
 
-
     debugImplementation("com.example.channel_flutter:flutter_debug:1.0")
     releaseImplementation("com.example.channel_flutter:flutter_release:1.0")
     add("profileImplementation", "com.example.channel_flutter:flutter_profile:1.0")
-
-
-    // Add Flutter dependency
-    implementation(project(":channel_flutter"))
 }
 
 
