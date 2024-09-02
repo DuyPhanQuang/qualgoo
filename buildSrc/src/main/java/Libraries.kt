@@ -18,16 +18,18 @@ import Version.TruthExt
 object Version {
     const val CoreKtx = "1.12.0"
     const val AppCompat = "1.6.1"
-    const val AndroidXCompose = "1.6.0-beta01"
-    const val ComposeBom = "2023.10.01"
+    const val AndroidXCompose = "1.5.1"
+    const val ComposeMaterial3Components = "1.2.0-alpha07"
+    const val ComposeBom = "2023.09.00"
+    const val AndroidXLiveData = "1.5.1"
     const val AndroidXLifeCycle = "2.6.2"
-    const val NavigationCompose = "2.7.5"
-    const val AndroidXTestVersion = "1.5.0"
+    const val NavigationCompose = "2.7.2"
+    const val AndroidXTestVersion = "1.12.0"
     const val EspressoCore = "3.5.1"
     const val TestRunnerVersion = "1.5.2"
     const val JunitExtKtx = "1.1.5"
     const val TruthExt = "1.5.0"
-    const val Coil = "2.2.2"
+    const val Coil = "2.4.0"
     const val HiltNavigationCompose = "1.1.0"
     const val HiltAndroidVersion = "2.48"
     const val Accompanist = "0.31.1-alpha"
@@ -36,13 +38,13 @@ object Version {
     const val GsonVersion = "2.10.1"
     const val GuavaAndroid = "31.0.1-android"
     const val TimberVersion = "5.0.1"
-    const val Okhttp3Version = "4.11.0"
+    const val Okhttp3Version = "4.12.0"
     const val Retrofit2Version = "2.9.0"
     const val AndroidXActivity = "1.9.1"
-    const val KotlinxCoroutines = "1.7.0"
-    const val KotlinReflect = "1.8.21"
-    const val AndroidXLiveData = "1.6.0-beta01"
+    const val KotlinxCoroutines = "1.7.2"
+    const val KotlinReflect = "1.9.10"
     const val LottieVersion = "5.2.0"
+    const val RoomVersion = "2.6.0"
 }
 
 
@@ -67,9 +69,9 @@ object Libraries {
         const val composeBom = "androidx.compose:compose-bom:${Version.ComposeBom}"
         const val composeUi = "androidx.compose.ui:ui:${Version.AndroidXCompose}"
         const val composeUiToolingPreview = "androidx.compose.ui:ui-tooling-preview:${Version.AndroidXCompose}"
-        const val composeMaterial3 = "androidx.compose.material3:material3:1.2.0-alpha11"
-        const val composeFoundation = "androidx.compose.foundation:foundation"
-        const val composeRuntime = "androidx.compose.runtime:runtime"
+        const val composeMaterial3 = "androidx.compose.material3:material3:${Version.ComposeMaterial3Components}"
+        const val composeFoundation = "androidx.compose.foundation:foundation:${Version.AndroidXCompose}"
+        const val composeRuntime = "androidx.compose.runtime:runtime:${Version.AndroidXCompose}"
         const val composeActivity = "androidx.activity:activity-compose:${Version.AndroidXActivity}"
         const val composeUiUtil = "androidx.compose.ui:ui-util:${Version.AndroidXCompose}"
         const val constraintLayoutCompose =
@@ -92,9 +94,9 @@ object Libraries {
     }
 
     object Room {
-        const val runtime = "androidx.room:room-runtime:2.6.0"
-        const val ktx = "androidx.room:room-ktx:2.6.0"
-        const val compiler = "androidx.room:room-compiler:2.6.0"
+        const val runtime = "androidx.room:room-runtime:${Version.RoomVersion}"
+        const val ktx = "androidx.room:room-ktx:${Version.RoomVersion}"
+        const val compiler = "androidx.room:room-compiler:${Version.RoomVersion}"
     }
 
     object Timber {

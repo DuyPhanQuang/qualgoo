@@ -43,6 +43,7 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro",
                 "retrofit2.pro",
+                "coroutines.pro",
                 "gson.pro",
                 "okhttp3.pro",
                 "firebase-crashlytics.pro"
@@ -56,6 +57,7 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro",
                 "retrofit2.pro",
+                "coroutines.pro",
                 "gson.pro",
                 "okhttp3.pro",
                 "firebase-crashlytics.pro"
