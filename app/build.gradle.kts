@@ -1,3 +1,4 @@
+import org.jetbrains.kotlin.util.profile
 import java.util.Properties
 
 plugins {
@@ -72,6 +73,8 @@ android {
 
         create("profile") {
             initWith(getByName("debug"))
+            isDebuggable = true
+            isMinifyEnabled = false
         }
     }
 
@@ -125,5 +128,5 @@ dependencies {
     add("profileImplementation", "com.example.channel_flutter:flutter_profile:1.0")
 
     // Add Flutter dependency
-    implementation(project(":demo_channel_flutter"))
+    implementation(project(":channel_flutter"))
 }

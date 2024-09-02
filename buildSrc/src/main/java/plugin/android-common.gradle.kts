@@ -101,7 +101,7 @@ dependencies {
 
 
     // Add Flutter dependency
-    implementation(project(":demo_channel_flutter"))
+    implementation(project(":channel_flutter"))
 }
 
 
