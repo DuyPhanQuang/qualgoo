@@ -108,18 +108,6 @@ android {
     packaging  {
         resources.excludes.add("META-INF/**/*")
     }
-
-    repositories{
-        val storageUrl = System.getenv("FLUTTER_STORAGE_BASE_URL") ?: "https://storage.googleapis.com"
-        repositories {
-            maven {
-                setUrl("../lib/build/host/outputs/repo")
-            }
-            maven {
-                setUrl("$storageUrl/download.flutter.io")
-            }
-        }
-    }
 }
 
 dependencies {
@@ -128,7 +116,7 @@ dependencies {
     moduleDependencies()
     testDependencies()
 
-    debugImplementation("com.example.book:flutter_debug:1.0")
-    releaseImplementation("com.example.book:flutter_release:1.0")
-    add("profileImplementation", "com.example.book:flutter_profile:1.0")
+//    debugImplementation("com.example.book:flutter_debug:1.0")
+//    releaseImplementation("com.example.book:flutter_release:1.0")
+//    add("profileImplementation", "com.example.book:flutter_profile:1.0")
 }

@@ -15,6 +15,14 @@ repositories {
     gradlePluginPortal()
     google()
     mavenCentral()
+
+    val storageUrl = System.getenv("FLUTTER_STORAGE_BASE_URL") ?: "https://storage.googleapis.com"
+    maven {
+        setUrl("../lib/build/host/outputs/repo")
+    }
+    maven {
+        setUrl("$storageUrl/download.flutter.io")
+    }
 }
 
 dependencies {

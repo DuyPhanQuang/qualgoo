@@ -2,7 +2,6 @@ package wangyeo.interview.feature.home.viewmodel
 
 import android.annotation.SuppressLint
 import android.content.Context
-import androidx.core.content.ContextCompat.startActivity
 import com.google.android.gms.maps.model.LatLng
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
@@ -20,7 +19,6 @@ import wangyeo.interview.feature.common.global.Constants
 import wangyeo.interview.feature.home.models.CurrentWeatherMapper
 import wangyeo.interview.feature.common.R
 import javax.inject.Inject
-import io.flutter.embedding.android.FlutterActivity;
 
 @SuppressLint("StaticFieldLeak")
 @HiltViewModel
@@ -155,11 +153,11 @@ class HomeViewModel @Inject constructor(
     }
 
     fun onGoToBook() {
-        startActivity(
-            FlutterActivity
-                .withNewEngine()
-                .initialRoute("/book_tab")
-                .build(this)
-        )
+//        startActivity(
+//            FlutterActivity
+//                .withNewEngine()
+//                .initialRoute("/book_tab")
+//                .build(this)
+//        )
     }
 }
