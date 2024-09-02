@@ -65,6 +65,7 @@ fun NavGraphBuilder.home(appState: BaseAppState) {
             HomeScreen(
                 appState = appState,
                 viewModel = hiltViewModel(),
+                channelFlutterViewModel = hiltViewModel(),
             )
         }
 

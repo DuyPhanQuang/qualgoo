@@ -18,6 +18,7 @@ import wangyeo.interview.feature.common.global.Constants
 import wangyeo.interview.feature.home.ui.components.CurrentWeatherView
 import wangyeo.interview.feature.home.viewmodel.HomeViewModel
 import wangyeo.interview.qualgoo.BaseAppState
+import wangyeo.interview.qualgoo.ChannelFlutterViewModel
 import wangyeo.interview.qualgoo.routes.Screen
 
 @OptIn(ExperimentalPermissionsApi::class, ExperimentalMaterialApi::class)
@@ -25,6 +26,7 @@ import wangyeo.interview.qualgoo.routes.Screen
 fun HomeScreen(
     appState: BaseAppState,
     viewModel: HomeViewModel = viewModel(),
+    channelFlutterViewModel: ChannelFlutterViewModel = viewModel(),
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
 
@@ -137,7 +139,7 @@ fun HomeScreen(
             }
         },
         onGoToFlutterScreen = {
-            viewModel.goToFlutterActivity()
+            channelFlutterViewModel.onGoToFlutterScreenClick()
         }
     )
 }
