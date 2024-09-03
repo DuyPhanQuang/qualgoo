@@ -31,7 +31,10 @@ import wangyeo.interview.qualgoo.routes.splash
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalAnimationApi::class)
 @Composable
-fun RootApp(appState: BaseAppState = rememberBaseAppState()) {
+fun RootApp(
+    appState: BaseAppState = rememberBaseAppState(),
+    channelFlutterViewModel: ChannelFlutterViewModel
+) {
     val systemUiController = rememberSystemUiController()
     val darkIcons = isSystemInDarkTheme()
 
@@ -84,9 +87,12 @@ fun RootApp(appState: BaseAppState = rememberBaseAppState()) {
                 navController = appState.controller,
                 startDestination = NestedGraph.SPLASH.route,
             ) {
-                splash(appState)
+                splash(appState = appState)
 
-                home(appState)
+                home(
+                    appState = appState,
+                    channelFlutterViewModel = channelFlutterViewModel
+                )
             }
         }
     }

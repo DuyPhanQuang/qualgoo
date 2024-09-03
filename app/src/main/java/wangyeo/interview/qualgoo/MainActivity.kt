@@ -10,8 +10,8 @@ import androidx.core.view.WindowCompat
 import dagger.hilt.android.AndroidEntryPoint
 import wangyeo.interview.theme.AppTheme
 import androidx.activity.viewModels
-import androidx.lifecycle.Observer
 import io.flutter.embedding.android.FlutterActivity
+import wangyeo.interview.qualgoo.bridges.flutter.FlutterChannelKind
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
@@ -26,25 +26,37 @@ class MainActivity : ComponentActivity() {
         // Initialize the activity result launcher
         startFlutterActivityLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             // Handle the result if needed
-            println(result)
+            println("activity launcher result: $result")
+        }
+
+        viewModel.state.observe(this) { value ->
+            value?.let {
+                if (it.isStarted) {
+                    when (it.kind) {
+                        FlutterChannelKind.ALIBABA -> {
+
+                        }
+                        FlutterChannelKind.INTERNAL -> {
+                            viewModel.onOpenFlutterComplete() // Reset the event if needed
+                            startFlutterActivity(value.arguments)
+                        }
+                    }
+                }
+            }
         }
 
         setContent {
             AppTheme {
-                viewModel.goToFlutterActivity.observe(this, Observer { state ->
-                    if (state.isStarted) {
-                        viewModel.onOpenFlutterComplete() // Reset the event if needed
-                        startFlutterActivity(state.arguments)
-                    }
-                })
-
-                RootApp()
+                RootApp(channelFlutterViewModel = viewModel)
             }
         }
     }
 
     private fun startFlutterActivity(arguments: String? = null) {
-        val intent = FlutterActivity.withCachedEngine("1").build(this)
+        val intent = FlutterActivity
+            .withCachedEngine("1")
+            .build(this)
+            .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         intent.putExtra("arguments", arguments)
         startActivity(intent)
     }

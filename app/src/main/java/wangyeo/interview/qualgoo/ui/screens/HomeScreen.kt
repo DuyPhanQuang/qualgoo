@@ -26,7 +26,7 @@ import wangyeo.interview.qualgoo.routes.Screen
 fun HomeScreen(
     appState: BaseAppState,
     viewModel: HomeViewModel = viewModel(),
-    channelFlutterViewModel: ChannelFlutterViewModel = viewModel(),
+    channelFlutterViewModel: ChannelFlutterViewModel
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
 

@@ -11,6 +11,7 @@ import androidx.navigation.navigation
 import com.google.accompanist.navigation.animation.composable
 import wangyeo.interview.feature.common.global.Constants
 import wangyeo.interview.qualgoo.BaseAppState
+import wangyeo.interview.qualgoo.ChannelFlutterViewModel
 import wangyeo.interview.qualgoo.ui.screens.SplashScreen
 import wangyeo.interview.qualgoo.ui.screens.HomeScreen
 import wangyeo.interview.qualgoo.ui.screens.SearchByTextScreen
@@ -42,7 +43,10 @@ fun NavGraphBuilder.splash(appState: BaseAppState) {
 }
 
 @OptIn(ExperimentalAnimationApi::class)
-fun NavGraphBuilder.home(appState: BaseAppState) {
+fun NavGraphBuilder.home(
+    appState: BaseAppState,
+    channelFlutterViewModel: ChannelFlutterViewModel
+) {
     navigation(
         route = NestedGraph.HOME.route,
         startDestination = Screen.Home.route,
@@ -65,7 +69,7 @@ fun NavGraphBuilder.home(appState: BaseAppState) {
             HomeScreen(
                 appState = appState,
                 viewModel = hiltViewModel(),
-                channelFlutterViewModel = hiltViewModel(),
+                channelFlutterViewModel = channelFlutterViewModel
             )
         }
 
