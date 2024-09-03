@@ -39,6 +39,8 @@ object FlutterUtils {
             MethodChannel(internalFlutterEngine.dartExecutor, "wangyeo.qualgoo.flutter.internal")
         internalMethodChannel.setMethodCallHandler { call, _ ->
             when (call.method) {
+                // be careful triggered call this method from flutter module because this will create new Flutter Activity
+                // e.g: current route: Main Activity(Native) -> Flutter Activity 1 -> Flutter Activity 2
                 "launchFlutterActivity" -> {
                     internalLaunchFlutterActivityFunc(call.arguments as String?)
                 }
@@ -60,6 +62,8 @@ object FlutterUtils {
             MethodChannel(alibabaFlutterEngine.dartExecutor, "wangyeo.qualgoo.flutter.alibaba")
         alibabaMethodChannel.setMethodCallHandler { call, _ ->
             when (call.method) {
+                // be careful triggered call this method from flutter module because this will create new Flutter Activity
+                // e.g: current route: Main Activity(Native) -> Flutter Activity 1 -> Flutter Activity 2
                 "launchFlutterActivity" -> {
                     alibabaLaunchFlutterActivityFunc(call.arguments as String?)
                 }
@@ -90,7 +94,7 @@ object FlutterUtils {
     // sometimes we have arguments should get from callback value `setMethodCallHandler` flutter flow
     fun internalLaunchFlutterActivityFunc(arguments: String?) {
         val intent = FlutterActivity
-            .withCachedEngine(ALIBABA_ENGINE_ID)
+            .withCachedEngine(INTERNAL_ENGINE_ID)
             .build(context)
             .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         intent.putExtra("arguments", arguments)

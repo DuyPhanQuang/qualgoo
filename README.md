@@ -1,16 +1,31 @@
 # qualgoo
 Interview project
 
-## :hammer: How to build app
+## :hammer: [Before integrate Flutter module]. How to build app for [branch: main]
 
 - Recommended: Using the newest version of Android Studio Canary (JellyFish+).
-- 1. You must add `google-services.json` inside `app/`
+- 1. You must add `google-services.json` into `app/` folder
 - 2. You must put maps value `API_KEY` into `AndroidManifests.xml` to build and run app
 ```XML
     <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="${API_KEY}" />
 ```
+- 3. Run app
+
+## :hammer: [After integrate Flutter module] How to build app for [branch: embedded/embedded-flutter-module]
+- Recommended: Using the newest version of Android Studio Canary (JellyFish+).
+- 1. You must add `google-services.json` into `app/` folder
+- 2. You must put maps value `API_KEY` into `AndroidManifests.xml` to build and run app
+```XML
+    <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="${API_KEY}" />
+```
+- 3. You must `cd` to `channel_flutter` then run command-line `flutter clean && flutter pub get && flutter build aar`
+- 4. Waiting build take some minutes. If succeed, copy `build` folder inside `channel_flutter` then paste to `lib/` folder. 
+- 5. Jump to this line: maven(url = "E:\\qualgoo\\lib\\build\\host\\outputs\\repo") then put `lib/` absolute path
+- 6. Run app
 
 ## build with Bazel for speed up and manage code artifacts
 
