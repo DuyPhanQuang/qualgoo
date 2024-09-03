@@ -21,6 +21,8 @@ android {
         targetSdk = AppConfig.targetSdk
         consumerProguardFiles ("consumer-rules.pro")
 
+        multiDexEnabled = true
+
         ndk {
             // Filter for architectures supported by Flutter
             abiFilters += listOf("armeabi-v7a", "arm64-v8a", "x86_64")

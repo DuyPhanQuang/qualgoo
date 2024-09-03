@@ -1,36 +1,22 @@
 package wangyeo.interview.qualgoo
 
-import android.app.Application
 import android.content.pm.PackageManager
 import android.os.Build
+import androidx.multidex.MultiDexApplication
 import com.google.android.libraries.places.api.Places
 import dagger.hilt.android.HiltAndroidApp
-import io.flutter.embedding.engine.FlutterEngine
-import io.flutter.embedding.engine.FlutterEngineCache
-import io.flutter.embedding.engine.dart.DartExecutor
 import timber.log.Timber
-
-const val ENGINE_ID = "1"
+import wangyeo.interview.qualgoo.bridges.flutter.FlutterUtils
 
 @HiltAndroidApp
-class RootApplication : Application() {
-    lateinit var flutterEngine : FlutterEngine
+class RootApplication : MultiDexApplication() {
 
     override fun onCreate() {
         super.onCreate()
-        // Instantiate a FlutterEngine.
-        flutterEngine = FlutterEngine(this)
 
-        // Start executing Dart code to pre-warm the FlutterEngine.
-        flutterEngine
-            .dartExecutor
-            .executeDartEntrypoint(
-                DartExecutor.DartEntrypoint.createDefault()
-            )
-
-        // Cache the FlutterEngine to be used by FlutterActivity.
-        FlutterEngineCache.getInstance().put(ENGINE_ID, flutterEngine)
-
+        // [Flutter] - Initiate multiple flutter engines
+        FlutterUtils.context = this
+        FlutterUtils.initialize()
 
         val appInfo = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             packageManager.getApplicationInfo(

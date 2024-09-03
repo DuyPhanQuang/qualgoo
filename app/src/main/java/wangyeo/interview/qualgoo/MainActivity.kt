@@ -12,6 +12,8 @@ import wangyeo.interview.theme.AppTheme
 import androidx.activity.viewModels
 import io.flutter.embedding.android.FlutterActivity
 import wangyeo.interview.qualgoo.bridges.flutter.FlutterChannelKind
+import wangyeo.interview.qualgoo.bridges.flutter.FlutterUtils
+import wangyeo.interview.qualgoo.bridges.flutter.INTERNAL_ENGINE_ID
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
@@ -38,7 +40,7 @@ class MainActivity : ComponentActivity() {
                         }
                         FlutterChannelKind.INTERNAL -> {
                             viewModel.onOpenFlutterComplete() // Reset the event if needed
-                            startFlutterActivity(value.arguments)
+                            FlutterUtils.internalLaunchFlutterActivityFunc(it.arguments)
                         }
                     }
                 }
@@ -50,14 +52,5 @@ class MainActivity : ComponentActivity() {
                 RootApp(channelFlutterViewModel = viewModel)
             }
         }
-    }
-
-    private fun startFlutterActivity(arguments: String? = null) {
-        val intent = FlutterActivity
-            .withCachedEngine("1")
-            .build(this)
-            .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-        intent.putExtra("arguments", arguments)
-        startActivity(intent)
     }
 }

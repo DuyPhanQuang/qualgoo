@@ -1,4 +1,3 @@
-import org.jetbrains.kotlin.util.profile
 import java.util.Properties
 
 plugins {
@@ -31,6 +30,8 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
+
+        multiDexEnabled = true
 
         ndk {
             // Filter for architectures supported by Flutter
