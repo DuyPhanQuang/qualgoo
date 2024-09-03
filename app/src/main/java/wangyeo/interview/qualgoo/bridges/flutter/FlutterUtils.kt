@@ -73,6 +73,7 @@ object FlutterUtils {
         val intent = FlutterActivity
             .withCachedEngine(INTERNAL_ENGINE_ID)
             .build(context)
+            .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         intent.putExtra("arguments", arguments)
         context.startActivity(intent)
     }

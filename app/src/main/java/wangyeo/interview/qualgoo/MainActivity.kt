@@ -10,14 +10,12 @@ import androidx.core.view.WindowCompat
 import dagger.hilt.android.AndroidEntryPoint
 import wangyeo.interview.theme.AppTheme
 import androidx.activity.viewModels
-import io.flutter.embedding.android.FlutterActivity
 import wangyeo.interview.qualgoo.bridges.flutter.FlutterChannelKind
 import wangyeo.interview.qualgoo.bridges.flutter.FlutterUtils
-import wangyeo.interview.qualgoo.bridges.flutter.INTERNAL_ENGINE_ID
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
-    private val viewModel: ChannelFlutterViewModel by viewModels()
+    private val channelFlutterViewModel: ChannelFlutterViewModel by viewModels()
     private lateinit var startFlutterActivityLauncher: ActivityResultLauncher<Intent>
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,7 +29,7 @@ class MainActivity : ComponentActivity() {
             println("activity launcher result: $result")
         }
 
-        viewModel.state.observe(this) { value ->
+        channelFlutterViewModel.state.observe(this) { value ->
             value?.let {
                 if (it.isStarted) {
                     when (it.kind) {
@@ -39,7 +37,7 @@ class MainActivity : ComponentActivity() {
 
                         }
                         FlutterChannelKind.INTERNAL -> {
-                            viewModel.onOpenFlutterComplete() // Reset the event if needed
+                            channelFlutterViewModel.onOpenFlutterComplete() // Reset the event if needed
                             FlutterUtils.internalLaunchFlutterActivityFunc(it.arguments)
                         }
                     }
@@ -49,7 +47,9 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             AppTheme {
-                RootApp(channelFlutterViewModel = viewModel)
+                RootApp(
+                    channelFlutterViewModel = channelFlutterViewModel
+                )
             }
         }
     }
