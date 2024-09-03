@@ -139,7 +139,8 @@ fun HomeScreen(
             }
         },
         onGoToFlutterScreen = {
-            channelFlutterViewModel.onGoToFlutterScreenClick()
+            val mockArgs = "teamId=123"
+            channelFlutterViewModel.onGoToFlutterScreenClick(mockArgs)
         }
     )
 }

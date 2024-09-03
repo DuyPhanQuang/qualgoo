@@ -152,8 +152,4 @@ class HomeViewModel @Inject constructor(
             it.copy(navigateSearch = currentLocation)
         }
     }
-
-    fun goToFlutterActivity() {
-
-    }
 }
