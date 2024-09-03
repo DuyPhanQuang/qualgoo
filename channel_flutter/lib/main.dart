@@ -8,13 +8,13 @@ void main() {
 @pragma('vm:entry-point')
 void internalMain() {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(const MyApp());
+  runApp(const MyInternalApp());
 }
 
 @pragma('vm:entry-point')
 void alibabaMain() {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(const MyApp());
+  runApp(const AlibabaApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -28,6 +28,36 @@ class MyApp extends StatelessWidget {
          primarySwatch: Colors.blue,
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
+    );
+  }
+}
+
+class MyInternalApp extends StatelessWidget {
+  const MyInternalApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: '[Flutter Internal] Flow',
+      theme: ThemeData(
+        primarySwatch: Colors.yellow,
+      ),
+      home: const MyHomePage(title: '[Flutter Internal] Demo Home Page'),
+    );
+  }
+}
+
+class AlibabaApp extends StatelessWidget {
+  const AlibabaApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: '[Flutter Alibaba] Flow',
+      theme: ThemeData(
+        primarySwatch: Colors.orange,
+      ),
+      home: const MyHomePage(title: '[Flutter Alibaba] Demo Home Page'),
     );
   }
 }

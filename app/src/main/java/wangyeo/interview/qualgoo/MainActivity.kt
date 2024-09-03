@@ -34,7 +34,8 @@ class MainActivity : ComponentActivity() {
                 if (it.isStarted) {
                     when (it.kind) {
                         FlutterChannelKind.ALIBABA -> {
-
+                            channelFlutterViewModel.onOpenFlutterComplete() // Reset the event if needed
+                            FlutterUtils.alibabaLaunchFlutterActivityFunc(it.arguments)
                         }
                         FlutterChannelKind.INTERNAL -> {
                             channelFlutterViewModel.onOpenFlutterComplete() // Reset the event if needed

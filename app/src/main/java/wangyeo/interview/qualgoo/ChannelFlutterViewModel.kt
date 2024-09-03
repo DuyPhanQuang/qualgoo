@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
+import wangyeo.interview.qualgoo.bridges.flutter.FlutterChannelKind
 import javax.inject.Inject
 
 @HiltViewModel
@@ -18,10 +19,14 @@ class ChannelFlutterViewModel @Inject constructor() : ViewModel() {
         )
     }
 
-    fun onGoToFlutterScreenClick(args: String? = null) {
+    fun onGoToFlutterScreenClick(
+        args: String? = null,
+        kind: FlutterChannelKind = FlutterChannelKind.INTERNAL
+    ) {
         _state.value = ChannelFlutterViewState(
             isStarted = true,
             arguments = args,
+            kind = kind,
         )
     }
 

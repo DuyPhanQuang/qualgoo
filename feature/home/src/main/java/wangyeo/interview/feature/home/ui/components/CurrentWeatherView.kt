@@ -26,7 +26,7 @@ fun CurrentWeatherView(
     onShowSnackBar: (message: String) -> Unit = {},
     onNavigateSearch: () -> Unit = {},
     onErrorPositiveAction: (action: ActionType?, value: Any?) -> Unit = { _, _ -> },
-    onGoToFlutterScreen: () -> Unit
+    onGoToFlutterScreen: (type: String) -> Unit
 ) {
     AppScaffold(
         modifier = Modifier.fillMaxSize(),

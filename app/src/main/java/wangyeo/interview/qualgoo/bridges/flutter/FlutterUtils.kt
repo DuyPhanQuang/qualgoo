@@ -60,8 +60,12 @@ object FlutterUtils {
             MethodChannel(alibabaFlutterEngine.dartExecutor, "wangyeo.qualgoo.flutter.alibaba")
         alibabaMethodChannel.setMethodCallHandler { call, _ ->
             when (call.method) {
-                "xxx" -> {
-                    /// impl
+                "launchFlutterActivity" -> {
+                    alibabaLaunchFlutterActivityFunc(call.arguments as String?)
+                }
+
+                "launchNative" -> {
+                    alibabaLaunchNativeFunc(call.arguments as String?)
                 }
             }
         }
@@ -69,9 +73,9 @@ object FlutterUtils {
 
     // arguments should create from native flow
     // sometimes we have arguments should get from callback value `setMethodCallHandler` flutter flow
-    fun internalLaunchFlutterActivityFunc(arguments: String?) {
+    fun alibabaLaunchFlutterActivityFunc(arguments: String?) {
         val intent = FlutterActivity
-            .withCachedEngine(INTERNAL_ENGINE_ID)
+            .withCachedEngine(ALIBABA_ENGINE_ID)
             .build(context)
             .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         intent.putExtra("arguments", arguments)
@@ -79,6 +83,21 @@ object FlutterUtils {
     }
 
     fun internalLaunchNativeFunc(arguments: String?) {
+        /// impl
+    }
+
+    // arguments should create from native flow
+    // sometimes we have arguments should get from callback value `setMethodCallHandler` flutter flow
+    fun internalLaunchFlutterActivityFunc(arguments: String?) {
+        val intent = FlutterActivity
+            .withCachedEngine(ALIBABA_ENGINE_ID)
+            .build(context)
+            .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        intent.putExtra("arguments", arguments)
+        context.startActivity(intent)
+    }
+
+    fun alibabaLaunchNativeFunc(arguments: String?) {
         /// impl
     }
 }

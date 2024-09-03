@@ -18,11 +18,13 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Menu
+import androidx.compose.material.icons.outlined.Star
 import androidx.compose.material.icons.outlined.ThumbUp
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -186,18 +188,64 @@ fun NowWeather(
 fun CurrentWeatherContent(
     currentWeather: CurrentWeatherViewData,
     listHourly: List<HourWeatherViewData>,
-    onGoToFlutterScreen: () -> Unit
+    onGoToFlutterScreen: (type: String) -> Unit
 ) {
     Column(
         modifier = Modifier
             .fillMaxSize()
             .verticalScroll(rememberScrollState())
     ) {
-        IconButton(onClick = onGoToFlutterScreen) {
-            Icon(
-                imageVector = Icons.Outlined.ThumbUp,
-                contentDescription = null,
-            )
+        Row(
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            TextButton(
+                onClick = {
+                    onGoToFlutterScreen.invoke("run_internal_flow")
+                }
+            ) {
+                Row(
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Box(
+                        modifier = Modifier.padding(
+                            horizontal = 10.dp,
+                        ),
+                    ) {
+                        Icon(
+                            imageVector = Icons.Outlined.ThumbUp,
+                            contentDescription = null,
+                        )
+                    }
+                    Text(
+                        text = "Go internal Flutter",
+                        style = MaterialTheme.typography.labelLarge,
+                    )
+                }
+            }
+            TextButton(
+                onClick = {
+                    onGoToFlutterScreen.invoke("run_alibaba_flow")
+                }
+            ) {
+                Row(
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Box(
+                        modifier = Modifier.padding(
+                            horizontal = 6.dp,
+                        ),
+                    ) {
+                        Icon(
+                            imageVector = Icons.Outlined.Star,
+                            contentDescription = null,
+                        )
+                    }
+                    Text(
+                        text = "Go Alibaba Flutter",
+                        style = MaterialTheme.typography.labelLarge,
+                    )
+                }
+            }
         }
 
         NowWeather(

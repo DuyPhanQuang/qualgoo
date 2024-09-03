@@ -19,6 +19,7 @@ import wangyeo.interview.feature.home.ui.components.CurrentWeatherView
 import wangyeo.interview.feature.home.viewmodel.HomeViewModel
 import wangyeo.interview.qualgoo.BaseAppState
 import wangyeo.interview.qualgoo.ChannelFlutterViewModel
+import wangyeo.interview.qualgoo.bridges.flutter.FlutterChannelKind
 import wangyeo.interview.qualgoo.routes.Screen
 
 @OptIn(ExperimentalPermissionsApi::class, ExperimentalMaterialApi::class)
@@ -140,7 +141,17 @@ fun HomeScreen(
         },
         onGoToFlutterScreen = {
             val mockArgs = "teamId=123"
-            channelFlutterViewModel.onGoToFlutterScreenClick(mockArgs)
+            val kind: FlutterChannelKind = when (it) {
+                "run_alibaba_flow" -> {
+                    FlutterChannelKind.ALIBABA
+                } else -> {
+                    FlutterChannelKind.INTERNAL
+                }
+            }
+            channelFlutterViewModel.onGoToFlutterScreenClick(
+                args = mockArgs,
+                kind = kind
+            )
         }
     )
 }
